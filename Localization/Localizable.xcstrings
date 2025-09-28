@@ -239,8 +239,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ". Please go to your bluetooth settings, forget this device, and try again"
+            "state" : "translated",
+            "value" : ". Gå till inställningarna för Bluetooth och glöm den här enheten och försök sedan igen"
           }
         },
         "tr" : {
@@ -381,7 +381,7 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%1$@%2$@ / %3$@%4$@"
           }
         },
@@ -797,7 +797,7 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%1$u %2$@"
           }
         },
@@ -934,8 +934,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "12 sec/E"
+            "state" : "translated",
+            "value" : "12 sek/E"
           }
         },
         "tr" : {
@@ -1626,8 +1626,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "30 sec/E"
+            "state" : "translated",
+            "value" : "30 sek/E"
           }
         },
         "tr" : {
@@ -1907,8 +1907,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "60 sec/E"
+            "state" : "translated",
+            "value" : "60 sek/E"
           }
         },
         "tr" : {
@@ -3015,8 +3015,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to bolus 5E?"
+            "state" : "translated",
+            "value" : "Är du säker på att du vill ge 5E insulin?"
           }
         },
         "tr" : {
@@ -3151,8 +3151,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to set the temp basal to 200% for 1 hour?"
+            "state" : "translated",
+            "value" : "Är du säker på att du vill ställa in en temporär basal på 200% i 1 timme?"
           }
         },
         "tr" : {
@@ -4247,8 +4247,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Battery is empty. Replace it now!"
+            "state" : "translated",
+            "value" : "Pumpens batteri är tomt. Byt ut det nu!"
           }
         },
         "tr" : {
@@ -7958,7 +7958,7 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "DEBUG: Bolus action"
           }
         },
@@ -8094,7 +8094,7 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "DEBUG: Temp basal action"
           }
         },
@@ -8641,8 +8641,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Device found!"
+            "state" : "translated",
+            "value" : "Enhet hittad!"
           }
         },
         "tr" : {
@@ -9468,8 +9468,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Do bolus"
+            "state" : "translated",
+            "value" : "Utför bolus"
           }
         },
         "tr" : {
@@ -10297,8 +10297,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "During the pairing process, your DanaRS v3 will show a pairing prompt while you iPhone will show a prompt for a pairing code. On your pump, select OK and type the code on your iPhone. After that, Loop is ready to communicate with your DanaRS v1"
+            "state" : "translated",
+            "value" : "Under parkopplingsprocessen kommer DanaRS v3 att visa en parkopplingsförfrågan medan din iPhone kommer att visa en fråga om en parkopplingskod. Välj OK på din pump och skriv in koden på din iPhone. Efter det är Loop redo att kommunicera med din DanaRS v1"
           }
         },
         "tr" : {
@@ -10988,8 +10988,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Error while starting scanning for devices..."
+            "state" : "translated",
+            "value" : "Fel vid skanning efter enheter..."
           }
         },
         "tr" : {
@@ -12098,8 +12098,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Failed to pair to "
+            "state" : "translated",
+            "value" : "Kunde inte parkoppla med "
           }
         },
         "tr" : {
@@ -16632,8 +16632,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Oke"
+            "state" : "translated",
+            "value" : "OK"
           }
         },
         "tr" : {
@@ -17749,8 +17749,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Prime amount"
+            "state" : "translated",
+            "value" : "Prime-mängd"
           }
         },
         "tr" : {
@@ -18578,8 +18578,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Pump is disconnected"
+            "state" : "translated",
+            "value" : "Pump är frånkopplad"
           }
         },
         "tr" : {
@@ -19681,8 +19681,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reconnect to pump"
+            "state" : "translated",
+            "value" : "Återanslut till pump"
           }
         },
         "tr" : {
@@ -21605,8 +21605,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Scan"
+            "state" : "translated",
+            "value" : "Skanna"
           }
         },
         "tr" : {
@@ -25057,8 +25057,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Stop bolus"
+            "state" : "translated",
+            "value" : "Stoppa bolus"
           }
         },
         "tr" : {
@@ -25741,8 +25741,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "temp basal"
+            "state" : "translated",
+            "value" : "temporär basal"
           }
         },
         "tr" : {
@@ -26837,8 +26837,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "The pump reminds you when the amount of insulin in the pump reaches this level"
+            "state" : "translated",
+            "value" : "Pumpen kommer att påminna dig när mängd insulin i pumpen når denna nivå"
           }
         },
         "tr" : {
@@ -29029,8 +29029,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "WARNING: Please don't use this until you've read the documentation"
+            "state" : "translated",
+            "value" : "VARNING: Använd inte denna förrän du läst dokumentationen"
           }
         },
         "tr" : {
@@ -31494,8 +31494,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Your pump is disconnected longer than 5 minutes!"
+            "state" : "translated",
+            "value" : "Din pump är frånkopplad längre än 5 minuter!"
           }
         },
         "tr" : {
