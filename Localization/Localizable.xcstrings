@@ -203,8 +203,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ". Please go to your bluetooth settings, forget this device, and try again"
+            "state" : "translated",
+            "value" : ". Ga naar de bluetooth instellingen, vergeet dit apparaat en probeer het opnieuw"
           }
         },
         "pl" : {
@@ -345,7 +345,7 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%1$@%2$@ / %3$@%4$@"
           }
         },
@@ -761,7 +761,7 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%1$u %2$@"
           }
         },
@@ -898,7 +898,7 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "12 sec/E"
           }
         },
@@ -1590,7 +1590,7 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "30 sec/E"
           }
         },
@@ -1871,7 +1871,7 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "60 sec/E"
           }
         },
@@ -2979,8 +2979,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to bolus 5E?"
+            "state" : "translated",
+            "value" : "Weet je zeker dat je 5E wilt bolussen?"
           }
         },
         "pl" : {
@@ -3115,8 +3115,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to set the temp basal to 200% for 1 hour?"
+            "state" : "translated",
+            "value" : "Weet je zeker dat je het tijdelijk basaal wilt instellen op 200% gedurende 1 uur?"
           }
         },
         "pl" : {
@@ -4211,8 +4211,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Battery is empty. Replace it now!"
+            "state" : "translated",
+            "value" : "Batterij is leeg. Vervang hem nu!"
           }
         },
         "pl" : {
@@ -7922,8 +7922,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Bolus action"
+            "state" : "translated",
+            "value" : "DEBUG: Bolus actie"
           }
         },
         "pl" : {
@@ -8058,8 +8058,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Temp basal action"
+            "state" : "translated",
+            "value" : "DEBUG: tijdelijke basaal actie"
           }
         },
         "pl" : {
@@ -8605,8 +8605,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Device found!"
+            "state" : "translated",
+            "value" : "Apparaat gevonden!"
           }
         },
         "pl" : {
@@ -9432,8 +9432,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Do bolus"
+            "state" : "translated",
+            "value" : "Bolus uitvoeren"
           }
         },
         "pl" : {
@@ -10261,8 +10261,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "During the pairing process, your DanaRS v3 will show a pairing prompt while you iPhone will show a prompt for a pairing code. On your pump, select OK and type the code on your iPhone. After that, Loop is ready to communicate with your DanaRS v1"
+            "state" : "translated",
+            "value" : "Tijdens het koppelingsproces toont je DanaRS v1 een koppelingsverzoek, terwijl je iPhone om een koppelingscode vraagt. Selecteer 'OK' op je pomp en voer de code in op je iPhone. Daarna is %1$@ klaar om te communiceren met je DanaRS v1"
           }
         },
         "pl" : {
@@ -10952,8 +10952,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Error while starting scanning for devices..."
+            "state" : "translated",
+            "value" : "Fout bij het scannen naar apparaten..."
           }
         },
         "pl" : {
@@ -12062,8 +12062,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Failed to pair to "
+            "state" : "translated",
+            "value" : "Kan niet koppelen aan "
           }
         },
         "pl" : {
@@ -16596,7 +16596,7 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Oke"
           }
         },
@@ -17713,8 +17713,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Prime amount"
+            "state" : "translated",
+            "value" : "Prime hoeveelheid"
           }
         },
         "pl" : {
@@ -18542,8 +18542,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Pump is disconnected"
+            "state" : "translated",
+            "value" : "Pomp is ontkoppeld"
           }
         },
         "pl" : {
@@ -19645,8 +19645,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reconnect to pump"
+            "state" : "translated",
+            "value" : "Opnieuw verbinden met pomp"
           }
         },
         "pl" : {
@@ -21569,7 +21569,7 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Scan"
           }
         },
@@ -25021,7 +25021,7 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Stop bolus"
           }
         },
@@ -25705,8 +25705,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "temp basal"
+            "state" : "translated",
+            "value" : "tijdelijke basaal"
           }
         },
         "pl" : {
@@ -25759,8 +25759,8 @@
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "temp basal"
+            "state" : "translated",
+            "value" : "basal tạm thời"
           }
         },
         "yy-YY" : {
@@ -26801,8 +26801,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "The pump reminds you when the amount of insulin in the pump reaches this level"
+            "state" : "translated",
+            "value" : "De pomp herinnert je wanneer de hoeveelheid insuline in de pomp dit niveau bereikt"
           }
         },
         "pl" : {
@@ -28993,8 +28993,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "WARNING: Please don't use this until you've read the documentation"
+            "state" : "translated",
+            "value" : "WAARSCHUWING: Gebruik dit niet totdat je de documentatie hebt gelezen"
           }
         },
         "pl" : {
@@ -29047,8 +29047,8 @@
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "WARNING: Please don't use this until you've read the documentation"
+            "state" : "translated",
+            "value" : "CẢNH BÁO: Vui lòng không sử dụng tính năng này cho đến khi bạn đã đọc tài liệu hướng dẫn"
           }
         },
         "yy-YY" : {
@@ -31458,8 +31458,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Your pump is disconnected longer than 5 minutes!"
+            "state" : "translated",
+            "value" : "Je pomp is langer dan 5 minuten niet meer verbonden!"
           }
         },
         "pl" : {
@@ -31512,8 +31512,8 @@
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Your pump is disconnected longer than 5 minutes!"
+            "state" : "translated",
+            "value" : "Bơm của bạn đã bị ngắt kết nối hơn 5 phút!"
           }
         },
         "yy-YY" : {
