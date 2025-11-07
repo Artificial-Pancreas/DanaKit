@@ -1192,7 +1192,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "12 小时制"
+            "value" : "12h 符号"
           }
         }
       }
@@ -1454,7 +1454,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "24 小时制"
+            "value" : "24 小时符号"
           }
         }
       }
@@ -3568,7 +3568,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "基础率比较"
+            "value" : "基准比较"
           }
         }
       }
@@ -3699,7 +3699,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "达到基本基础率上限"
+            "value" : "达到基本极限"
           }
         }
       }
@@ -3831,7 +3831,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "基础率配置文件"
-            "value" : "基础率配置"
           }
         }
       }
@@ -5010,7 +5009,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "套管使用时长"
+            "value" : "插管年龄"
           }
         }
       }
@@ -5142,7 +5141,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "仅插管"
-            "value" : "仅套管"
           }
         }
       }
@@ -5280,7 +5278,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "填充套管"
+            "value" : "补充插管"
           }
         }
       }
@@ -5411,7 +5409,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "检查推杆"
+            "value" : "检查软轴"
           }
         }
       }
@@ -6851,7 +6849,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dana-i"
+            "value" : "达娜伊"
           }
         }
       }
@@ -7772,8 +7770,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "调试：临时基础率操作"
+            "state" : "new",
+            "value" : "DEBUG: Temp basal action"
           }
         }
       }
@@ -10280,7 +10278,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "药筒为空"
+            "value" : "胰岛素储量为零"
           }
         }
       }
@@ -11065,7 +11063,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "暂停调整失败"
+            "value" : "未能调整悬挂系统"
           }
         }
       }
@@ -11734,7 +11732,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "排空套管失败，请稍后再试。"
+            "value" : "插管填料失败。请稍后再试"
           }
         }
       }
@@ -11865,7 +11863,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "排空管路失败，请稍后再试。"
+            "value" : "管道填料失败。请稍后再试"
           }
         }
       }
@@ -11996,7 +11994,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "设置药筒容量失败。请重新同步泵数据并重试"
+            "value" : "设置储液器容量失败。请重新同步泵数据并重试"
           }
         }
       }
@@ -12651,7 +12649,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "硬件型号"
+            "value" : "硬件模型"
           }
         }
       }
@@ -14106,7 +14104,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "低药量提醒"
+            "value" : "低水位提醒"
           }
         }
       }
@@ -14499,7 +14497,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "夜间同步泵时间"
+            "value" : "夜间泵时间同步"
           }
         }
       }
@@ -16070,7 +16068,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "打开"
+            "value" : "开"
           }
         }
       }
@@ -16339,7 +16337,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "DanaRS v1 密码"
+            "value" : "密码 DanaRS v1"
           }
         }
       }
@@ -16470,7 +16468,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pin 1"
+            "value" : "引脚 1"
           }
         }
       }
@@ -16601,7 +16599,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pin 2"
+            "value" : "引脚 2"
           }
         }
       }
@@ -16739,7 +16737,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "需要 Pin 码"
+            "value" : "需要邮政编码"
           }
         }
       }
@@ -17139,7 +17137,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "泵电量 0%"
+            "value" : "泵电池 0"
           }
         }
       }
@@ -18994,7 +18992,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "重新连接到泵"
+            "value" : "重新连接 TP 泵"
           }
         }
       }
@@ -19387,7 +19385,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "胰岛素余量"
+            "value" : "胰岛素剩余水平"
           }
         }
       }
@@ -19517,8 +19515,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "移除泵"
+            "state" : "new",
+            "value" : "Remove Pump"
           }
         }
       }
@@ -19780,7 +19778,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "药筒容量"
+            "value" : "水库容量"
           }
         }
       }
@@ -19911,7 +19909,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "药筒和套管"
+            "value" : "蓄水池和插管"
           }
         }
       }
@@ -20042,7 +20040,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "药筒已空。请立即更换！"
+            "value" : "蓄水池已空。立即更换！"
           }
         }
       }
@@ -20173,7 +20171,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更换药筒和套管"
+            "value" : "储液器/管筒注水"
           }
         }
       }
@@ -20566,7 +20564,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "保存"
+            "value" : "保存​​"
           }
         }
       }
@@ -20826,8 +20824,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "扫描中"
+            "state" : "new",
+            "value" : "Scanning"
           }
         }
       }
@@ -23606,7 +23604,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "步骤 1：排空套管"
+            "value" : "步骤 1：插管填料"
           }
         }
       }
@@ -23737,7 +23735,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "步骤 1：设置药筒药量"
+            "value" : "步骤 1：设置蓄水池水位"
           }
         }
       }
