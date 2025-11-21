@@ -15439,6 +15439,12 @@
             "value" : "Oke"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Oke"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "new",
@@ -15484,7 +15490,7 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oke"
+            "value" : "Okay"
           }
         },
         "pl" : {
@@ -15538,7 +15544,7 @@
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oke"
+            "value" : "OK"
           }
         },
         "zh-Hans" : {
