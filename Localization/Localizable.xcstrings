@@ -15421,7 +15421,7 @@
     "Okay" : {
       "comment" : "label Okay",
       "localizations" : {
-        "en" : {
+        "ar" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Oke"
@@ -15519,7 +15519,7 @@
         },
         "sk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Oke"
           }
         },
@@ -15538,7 +15538,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oke"
+            "value" : "Добренько"
           }
         },
         "vi" : {
