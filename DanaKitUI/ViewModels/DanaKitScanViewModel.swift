@@ -42,20 +42,23 @@ class DanaKitScanViewModel: ObservableObject {
     }
 
     func connect(_ item: ScanResultItem) {
-        guard let device = foundDevices[item.bleIdentifier] else {
+        guard let pumpManager = pumpManager, let device = foundDevices[item.bleIdentifier] else {
             log.error("No view or device...")
             return
         }
 
         stopScan()
-        connectingTo = item.name
 
-        pumpManager?.connect(device) { result in
+        isConnecting = true
+        connectingTo = item.name
+        pumpManager.state.deviceName = item.name
+        pumpManager.state.bleIdentifier = item.bleIdentifier
+
+        pumpManager.connect(device) { result in
             DispatchQueue.main.async {
                 self.connectComplete(result, device)
             }
         }
-        isConnecting = true
     }
 
     func connectComplete(_ result: ConnectionResult, _ peripheral: CBPeripheral) {
@@ -103,12 +106,28 @@ class DanaKitScanViewModel: ObservableObject {
     }
 
     func syncTime(_ peripheral: CBPeripheral) {
-        pumpManager?.syncPumpTime { error in
+        guard let pumpManager = pumpManager else {
+            nextStep()
+            return
+        }
+        
+        pumpManager.syncPumpTime { error in
             if let error = error {
                 self.log.error("Failed to sync pump time: \(error)")
             }
 
-            self.pumpManager?.disconnect(peripheral)
+            self.syncData(peripheral)
+        }
+    }
+    
+    func syncData(_ peripheral: CBPeripheral) {
+        guard let pumpManager = pumpManager else {
+            nextStep()
+            return
+        }
+        
+        pumpManager.ensureCurrentPumpData { _ in
+            pumpManager.disconnect(peripheral)
             DispatchQueue.main.async {
                 self.nextStep()
             }

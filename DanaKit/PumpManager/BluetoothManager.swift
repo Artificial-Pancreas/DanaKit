@@ -50,7 +50,7 @@ protocol BluetoothManager: AnyObject, CBCentralManagerDelegate {
 extension BluetoothManager {
     func startScan() throws {
         guard manager.state == .poweredOn else {
-            throw NSError(domain: "Invalid bluetooth state. State: " + String(manager.state.rawValue), code: 0, userInfo: nil)
+            throw NSError(domain: "Invalid bluetooth state - state: \(manager.state.rawValue)", code: 0, userInfo: nil)
         }
 
         guard !manager.isScanning else {
@@ -95,7 +95,7 @@ extension BluetoothManager {
 
         // throw error if device could not be found after 10 sec
         Task {
-            try? await Task.sleep(nanoseconds: 10_000_000_000)
+            try await Task.sleep(nanoseconds: 10_000_000_000)
             guard self.peripheral != nil else {
                 throw NSError(domain: "Device is not findable", code: -1)
             }
@@ -103,8 +103,8 @@ extension BluetoothManager {
     }
 
     func connect(_ peripheral: CBPeripheral, _ completion: @escaping (ConnectionResult) -> Void) {
-        if self.peripheral?.state == .connected {
-            disconnect(self.peripheral!, force: true)
+        if let peripheral = self.peripheral, peripheral.state == .connected {
+            disconnect(peripheral, force: true)
         }
 
         manager.connect(peripheral, options: nil)
@@ -196,10 +196,9 @@ extension BluetoothManager {
         advertisementData: [String: Any],
         rssi _: NSNumber
     ) {
-        if peripheral.name == nil || deviceNameRegex.firstMatch(
-            in: peripheral.name!,
-            range: NSMakeRange(0, peripheral.name!.count)
-        ) == nil {
+        guard let name = advertisementData[CBAdvertisementDataLocalNameKey] as? String,
+              deviceNameRegex.firstMatch(in: name, range: NSMakeRange(0, name.count)) != nil
+        else {
             return
         }
 
@@ -217,7 +216,7 @@ extension BluetoothManager {
             return
         }
 
-        let result = DanaPumpScan(bleIdentifier: peripheral.identifier.uuidString, name: peripheral.name!, peripheral: peripheral)
+        let result = DanaPumpScan(bleIdentifier: peripheral.identifier.uuidString, name: name, peripheral: peripheral)
         devices.append(result)
         pumpManager?.notifyScanDeviceDidChange(result)
     }
@@ -232,13 +231,18 @@ extension BluetoothManager {
             return
         }
 
-        log.info("Connected to pump!")
-        self.peripheral = peripheral
-        peripheralManager = PeripheralManager(peripheral, self, pumpManager!, connectionCompletion)
+        guard let pumpManager = pumpManager else {
+            log.error("No pumpManager available...")
+            disconnect(peripheral, force: false)
+            connectionCompletion(.failure(NSError(domain: "No pumpManager", code: -1)))
 
-        pumpManager?.state.deviceName = peripheral.name
-        pumpManager?.state.bleIdentifier = peripheral.identifier.uuidString
-        pumpManager?.notifyStateDidChange()
+            return
+        }
+
+        log.info("Connected to pump!")
+
+        self.peripheral = peripheral
+        peripheralManager = PeripheralManager(peripheral, self, pumpManager, connectionCompletion)
 
         peripheral.discoverServices([PeripheralManager.SERVICE_UUID])
     }
