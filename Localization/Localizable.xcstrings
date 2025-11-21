@@ -14370,6 +14370,144 @@
         }
       }
     },
+    "No insulin type available. Please configure this in the Dana menu" : {
+      "comment" : "Error description when no insulin type is available",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "nb-NO" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        }
+      }
+    },
     "No, just disconnect" : {
       "comment" : "Button text to just disconnect",
       "localizations" : {
@@ -15519,8 +15657,8 @@
         },
         "sk" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Oke"
+            "state" : "translated",
+            "value" : "Dobre"
           }
         },
         "sv" : {
