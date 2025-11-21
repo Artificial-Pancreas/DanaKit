@@ -15489,8 +15489,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Oke"
+            "state" : "translated",
+            "value" : "Okay"
           }
         },
         "pl" : {
@@ -15543,8 +15543,8 @@
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Oke"
+            "state" : "translated",
+            "value" : "OK"
           }
         },
         "zh-Hans" : {
