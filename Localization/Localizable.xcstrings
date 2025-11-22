@@ -15301,6 +15301,7 @@
     },
     "OK" : {
       "comment" : "Ok",
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -15431,11 +15432,11 @@
       }
     },
     "Okay" : {
-      "comment" : "label Okay",
+      "comment" : "Ok\nlabel Okay",
       "localizations" : {
         "da" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Oke"
           }
         },
@@ -15448,7 +15449,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Okay"
+            "value" : "OK"
           }
         },
         "en" : {
@@ -15537,7 +15538,7 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "OK"
           }
         },
