@@ -14472,8 +14472,8 @@
         },
         "sk" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No insulin type available. Please configure this in the Dana menu"
+            "state" : "translated",
+            "value" : "Žiadny typ inzulínu nie je vybraný. Prosím, nastavte to v menu Dana"
           }
         },
         "sv" : {
@@ -14490,8 +14490,8 @@
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No insulin type available. Please configure this in the Dana menu"
+            "state" : "translated",
+            "value" : "Немає доступних типів інсуліну. Будь ласка, налаштуйте це в меню Dana."
           }
         },
         "vi" : {
