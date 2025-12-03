@@ -14442,8 +14442,8 @@
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No insulin type available. Please configure this in the Dana menu"
+            "state" : "translated",
+            "value" : "Geen insuline type beschikbaar. Configureer dit in het menu van Dana"
           }
         },
         "pl" : {
