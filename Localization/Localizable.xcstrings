@@ -88,6 +88,12 @@
             "value" : " is ready to be used!"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : " is ready to be used!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -214,6 +220,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ". Please go to your bluetooth settings, forget this device, and try again"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : ". Please go to your bluetooth settings, forget this device, and try again"
@@ -355,6 +367,12 @@
             "value" : "%1$@%2$@ / %3$@%4$@"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@%2$@ / %3$@%4$@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "new",
@@ -481,6 +499,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%@U"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@U"
@@ -617,6 +641,12 @@
             "value" : "%1$@ unidades restantes em %2$@"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ units remaining at %2$@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -748,6 +778,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$u %2$@"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$u %2$@"
@@ -891,6 +927,12 @@
             "value" : "12 sec/U"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "12 sec/U"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1017,6 +1059,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "12h notation"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "12h notation"
@@ -1153,6 +1201,12 @@
             "value" : "24h display"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "24h display"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1279,6 +1333,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "24h notation"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "24h notation"
@@ -1422,6 +1482,12 @@
             "value" : "30 sec/U"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "30 sec/U"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1560,6 +1626,12 @@
             "value" : "60 sec/U"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "60 sec/U"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1686,6 +1758,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "A blood glucose check reminder has been setup in your pump and is triggered. Please remove it or give your glucose level to the pump"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "A blood glucose check reminder has been setup in your pump and is triggered. Please remove it or give your glucose level to the pump"
@@ -1822,6 +1900,12 @@
             "value" : "A bolus timeout is active. The loop cycle cannot be completed till the timeout is inactive"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "A bolus timeout is active. The loop cycle cannot be completed till the timeout is inactive"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1948,6 +2032,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Action has been canceled, because the pump is busy"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Action has been canceled, because the pump is busy"
@@ -2090,6 +2180,12 @@
             "value" : "After setting up the insulin type and bolus speed, you will see a screen with all found Dana pumps. Select the pump you want to link with %1$@."
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "After setting up the insulin type and bolus speed, you will see a screen with all found Dana pumps. Select the pump you want to link with %1$@."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2216,6 +2312,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alarm beeps"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Alarm beeps"
@@ -2352,6 +2454,12 @@
             "value" : "An unknown error has occurred during processing the alert from the pump. Please report this"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "An unknown error has occurred during processing the alert from the pump. Please report this"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2482,6 +2590,12 @@
             "value" : "Are you sure you want to bolus 5E?"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Are you sure you want to bolus 5E?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "new",
@@ -2607,6 +2721,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Are you sure you want to set the temp basal to 200% for 1 hour?"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Are you sure you want to set the temp basal to 200% for 1 hour?"
@@ -2743,6 +2863,12 @@
             "value" : "Are you sure you want to stop using Dana-i/RS?"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Are you sure you want to stop using Dana-i/RS?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2869,6 +2995,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Backlight on time"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Backlight on time"
@@ -3005,6 +3137,12 @@
             "value" : "Basal"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Basal"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3131,6 +3269,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Basal Compare"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Basal Compare"
@@ -3267,6 +3411,12 @@
             "value" : "Basal limit reached"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Basal limit reached"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3398,6 +3548,12 @@
             "value" : "Perfil Basal"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Basal profile"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3524,6 +3680,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Battery age"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Battery age"
@@ -3660,6 +3822,12 @@
             "value" : "Battery is empty. Replace it now!"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Battery is empty. Replace it now!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "new",
@@ -3786,6 +3954,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Battery level"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Battery level"
@@ -3922,6 +4096,12 @@
             "value" : "Before starting with the pairing process, it is recommended to check, and if needed update, the pump password. You can do this by going to the pump settings -> user settings -> password. The default password is 1234, if this is your password, please consider changing it"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Before starting with the pairing process, it is recommended to check, and if needed update, the pump password. You can do this by going to the pump settings -> user settings -> password. The default password is 1234, if this is your password, please consider changing it"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4048,6 +4228,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Blood glucose Measure"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Blood glucose Measure"
@@ -4184,6 +4370,12 @@
             "value" : "Bolus"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Bolus"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4310,6 +4502,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Both"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Both"
@@ -4446,6 +4644,12 @@
             "value" : "Cancelar"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cancel"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4577,6 +4781,12 @@
             "value" : "Cannula age"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cannula age"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4703,6 +4913,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cannula only"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Cannula only"
@@ -4846,6 +5062,12 @@
             "value" : "Cannula refill"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cannula refill"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4972,6 +5194,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Check chaft"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Check chaft"
@@ -5108,6 +5336,12 @@
             "value" : "Check the pump and try again"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Check the pump and try again"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5234,6 +5468,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Check the reservoir and infus and try again"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Check the reservoir and infus and try again"
@@ -5370,6 +5610,12 @@
             "value" : "Checked at"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Checked at"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5496,6 +5742,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Checksum failed. Try again"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Checksum failed. Try again"
@@ -5632,6 +5884,12 @@
             "value" : "Ajustes"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Configuration"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5760,6 +6018,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Conectar"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Connect"
           }
         },
         "ru" : {
@@ -5893,6 +6157,12 @@
             "value" : "Conectado"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Connected"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6022,6 +6292,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Conectando"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Connecting"
           }
         },
         "ru" : {
@@ -6155,6 +6431,12 @@
             "value" : "Continuar"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Continue"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6281,6 +6563,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Daily limit reached"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Daily limit reached"
@@ -6417,6 +6705,12 @@
             "value" : "Dana-i"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Dana-i"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6543,6 +6837,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Dana-i/RS Setup"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Dana-i/RS Setup"
@@ -6679,6 +6979,12 @@
             "value" : "Dana-RS v3 found!"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Dana-RS v3 found!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6810,6 +7116,12 @@
             "value" : "DanaRS-v1"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DanaRS-v1"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6936,6 +7248,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DanaRS-v3"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "DanaRS-v3"
@@ -7079,6 +7397,12 @@
             "value" : "day(s)"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "day(s)"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7209,6 +7533,12 @@
             "value" : "DEBUG: Bolus action"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Bolus action"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "new",
@@ -7334,6 +7664,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Temp basal action"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "DEBUG: Temp basal action"
@@ -7470,6 +7806,12 @@
             "value" : "Delete pump"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Delete pump"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7599,6 +7941,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Deletar Bomba"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Delete Pump"
           }
         },
         "ru" : {
@@ -7732,6 +8080,12 @@
             "value" : "Delivery speed"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Delivery speed"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7857,6 +8211,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Device found!"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Device found!"
@@ -8000,6 +8360,12 @@
             "value" : "Disable bolus syncing?"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Disable bolus syncing?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8125,6 +8491,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Disconnect"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Disconnect"
@@ -8261,6 +8633,12 @@
             "value" : "Disconnect from pump"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Disconnect from pump"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8390,6 +8768,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Desconectado"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Disconnected"
           }
         },
         "ru" : {
@@ -8523,6 +8907,12 @@
             "value" : "Disconnecting..."
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Disconnecting..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8648,6 +9038,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Do bolus"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Do bolus"
@@ -8784,6 +9180,12 @@
             "value" : "Do you wish to receive a notification when the pump is longer disconnected for a specific time?"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Do you wish to receive a notification when the pump is longer disconnected for a specific time?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8912,6 +9314,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Done"
           }
         },
         "ru" : {
@@ -9045,6 +9453,12 @@
             "value" : "During the pairing process, your Dana-i will show a pairing prompt while your iPhone will show a prompt for a pairing code. On you pump, select OK and type the 6-digit code in screen on your iPhone. After that, %1$@ is ready to communicate with your Dana-i"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "During the pairing process, your Dana-i will show a pairing prompt while your iPhone will show a prompt for a pairing code. On you pump, select OK and type the 6-digit code in screen on your iPhone. After that, %1$@ is ready to communicate with your Dana-i"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9171,6 +9585,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "During the pairing process, your DanaRS v1 will show a pairing prompt while you iPhone will show a prompt for a pairing code. On your pump, select OK and type the code on your iPhone. After that, %1$@ is ready to communicate with your DanaRS v1"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "During the pairing process, your DanaRS v1 will show a pairing prompt while you iPhone will show a prompt for a pairing code. On your pump, select OK and type the code on your iPhone. After that, %1$@ is ready to communicate with your DanaRS v1"
@@ -9314,6 +9734,12 @@
             "value" : "Durante o processo de emparelhamento, o DanaRS v1 mostrará uma solicitação de emparelhamento, enquanto o iPhone mostrará uma solicitação de código de emparelhamento. Em sua bomba, selecione OK e digite o código em seu iPhone. Depois disso, o Loop estará pronto para se comunicar com o DanaRS v1"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "During the pairing process, your DanaRS v1 will show a pairing prompt while you iPhone will show a prompt for a pairing code. On your pump, select OK and type the code on your iPhone. After that, Loop is ready to communicate with your DanaRS v1"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9446,6 +9872,12 @@
             "value" : "During the pairing process, your DanaRS v3 will show a pairing prompt while you iPhone will show a prompt for a pairing code. On your pump, select OK and type the code on your iPhone. After that, Loop is ready to communicate with your DanaRS v1"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "During the pairing process, your DanaRS v3 will show a pairing prompt while you iPhone will show a prompt for a pairing code. On your pump, select OK and type the code on your iPhone. After that, Loop is ready to communicate with your DanaRS v1"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "new",
@@ -9572,6 +10004,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "During the pairing process, your DanaRS v3 will show a pairing prompt while you iPhone will show a prompt for two pairing codes. On your pump, select OK and type the two codes on your iPhone. After that, %1$@ is ready to communicate with your DanaRS v3"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "During the pairing process, your DanaRS v3 will show a pairing prompt while you iPhone will show a prompt for two pairing codes. On your pump, select OK and type the two codes on your iPhone. After that, %1$@ is ready to communicate with your DanaRS v3"
@@ -9715,6 +10153,12 @@
             "value" : "Durante o processo de emparelhamento, o DanaRS v3 mostrará uma solicitação de emparelhamento, enquanto o iPhone mostrará uma solicitação de dois códigos de emparelhamento. Em sua bomba, selecione OK e digite os dois códigos em seu iPhone. Depois disso, o Loop estará pronto para se comunicar com o DanaRS v3"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "During the pairing process, your DanaRS v3 will show a pairing prompt while you iPhone will show a prompt for two pairing codes. On your pump, select OK and type the two codes on your iPhone. After that, Loop is ready to communicate with your DanaRS v3"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9844,6 +10288,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reservatório vazio"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Empty reservoir"
           }
         },
         "ru" : {
@@ -9977,6 +10427,12 @@
             "value" : "Error while connecting to device"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Error while connecting to device"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10102,6 +10558,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Error while starting scanning for devices..."
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Error while starting scanning for devices..."
@@ -10238,6 +10700,12 @@
             "value" : "ERROR: Failed to pair device"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "ERROR: Failed to pair device"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10364,6 +10832,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Failed to adjust basal"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Failed to adjust basal"
@@ -10500,6 +10974,12 @@
             "value" : "Failed to adjust pump time"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Failed to adjust pump time"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10626,6 +11106,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Failed to adjust suspension"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Failed to adjust suspension"
@@ -10769,6 +11255,12 @@
             "value" : "Failed to adjust temp basal"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Failed to adjust temp basal"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10895,6 +11387,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Failed to generate Dana basal program"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Failed to generate Dana basal program"
@@ -11038,6 +11536,12 @@
             "value" : "Failed to make a connection"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Failed to make a connection"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11164,6 +11668,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Failed to pair to "
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Failed to pair to "
@@ -11300,6 +11810,12 @@
             "value" : "Failed to prime the cannula. Please try again later"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Failed to prime the cannula. Please try again later"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11426,6 +11942,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Failed to prime the tube. Please try again later"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Failed to prime the tube. Please try again later"
@@ -11562,6 +12084,12 @@
             "value" : "Failed to set reservoir amount. Re-sync pump data and try again please"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Failed to set reservoir amount. Re-sync pump data and try again please"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11688,6 +12216,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Fill in password"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Fill in password"
@@ -11824,6 +12358,12 @@
             "value" : "Finish"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Finish"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11950,6 +12490,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Firmware version"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Firmware version"
@@ -12086,6 +12632,12 @@
             "value" : "Found Dana-i/RS pumps"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Found Dana-i/RS pumps"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12212,6 +12764,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hardware model"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Hardware model"
@@ -12348,6 +12906,12 @@
             "value" : "Insulina\nSuspenso"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Insulin\nSuspended"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12474,6 +13038,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Insulin Delivery"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Insulin Delivery"
@@ -12610,6 +13180,12 @@
             "value" : "Insulin Remaining"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Insulin Remaining"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12736,6 +13312,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Insulin Suspended"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Insulin Suspended"
@@ -12872,6 +13454,12 @@
             "value" : "Tipo de Insulina"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Insulin Type"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13003,6 +13591,12 @@
             "value" : "Last sync"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Last sync"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13129,6 +13723,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Lcd on time"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Lcd on time"
@@ -13272,6 +13872,12 @@
             "value" : "loading"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "loading"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13410,6 +14016,12 @@
             "value" : "Loading"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Loading"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13536,6 +14148,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Low pump battery"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Low pump battery"
@@ -13672,6 +14290,12 @@
             "value" : "Low reservoir reminder"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Low reservoir reminder"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13798,6 +14422,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Manually sync Pump time"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Manually sync Pump time"
@@ -13934,6 +14564,12 @@
             "value" : "Missed Blood glucose check"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Missed Blood glucose check"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14060,6 +14696,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Nightly pump time sync"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Nightly pump time sync"
@@ -14195,6 +14837,12 @@
             "value" : "No"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14321,6 +14969,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No Insulin"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No Insulin"
@@ -14464,6 +15118,12 @@
             "value" : "No insulin type available. Please configure this in the Dana menu"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No insulin type available. Please configure this in the Dana menu"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "new",
@@ -14590,6 +15250,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No, just disconnect"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No, just disconnect"
@@ -14726,6 +15392,12 @@
             "value" : "No, Keep as is"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No, Keep as is"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14852,6 +15524,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No, Keep Pump As Is"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No, Keep Pump As Is"
@@ -14988,6 +15666,12 @@
             "value" : "NOTE: The DanaRS v1 is not supported (yet). If you have a DanaRS v1 pump available for testing, please contact Bastiaan Verhaar!"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "NOTE: The DanaRS v1 is not supported (yet). If you have a DanaRS v1 pump available for testing, please contact Bastiaan Verhaar!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15114,6 +15798,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Note: You Dana pump has a special setting which allows you to silence your Dana pump beeps. To enable this, please contact your Dana distributor"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Note: You Dana pump has a special setting which allows you to silence your Dana pump beeps. To enable this, please contact your Dana distributor"
@@ -15250,6 +15940,12 @@
             "value" : "Occlusion"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Occlusion"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15376,6 +16072,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Off"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Off"
@@ -15508,6 +16210,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "OK"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "OK"
@@ -15650,6 +16358,12 @@
             "value" : "Oke"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Oke"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "new",
@@ -15779,6 +16493,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ligado"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "On"
           }
         },
         "ru" : {
@@ -15919,6 +16639,12 @@
             "value" : "Only Automatic Bolus is supported"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Only Automatic Bolus is supported"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16045,6 +16771,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Password DanaRS v1"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Password DanaRS v1"
@@ -16181,6 +16913,12 @@
             "value" : "Pin 1"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pin 1"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16307,6 +17045,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pin 2"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Pin 2"
@@ -16450,6 +17194,12 @@
             "value" : "Pincode required"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pincode required"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16588,6 +17338,12 @@
             "value" : "Please consider changing your dosing strategy in the setting menu"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Please consider changing your dosing strategy in the setting menu"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16719,6 +17475,12 @@
             "value" : "Prime amount"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Prime amount"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "new",
@@ -16845,6 +17607,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pump battery 0%"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Pump battery 0%"
@@ -16988,6 +17756,12 @@
             "value" : "Pump battery is empty. Replace it now!"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pump battery is empty. Replace it now!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17114,6 +17888,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pump battery needs to be replaced soon"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Pump battery needs to be replaced soon"
@@ -17250,6 +18030,12 @@
             "value" : "Pump error"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pump error"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17376,6 +18162,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pump information"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Pump information"
@@ -17512,6 +18304,12 @@
             "value" : "Pump is disconnected"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pump is disconnected"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "new",
@@ -17638,6 +18436,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pump is still disconnected"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Pump is still disconnected"
@@ -17774,6 +18578,12 @@
             "value" : "Pump name"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pump name"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17905,6 +18715,12 @@
             "value" : "Pump shutdown"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pump shutdown"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18031,6 +18847,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pump time"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Pump time"
@@ -18174,6 +18996,12 @@
             "value" : "Re-enable bolus syncing?"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Re-enable bolus syncing?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18300,6 +19128,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Received invalid hex strings. Try again"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Received invalid hex strings. Try again"
@@ -18436,6 +19270,12 @@
             "value" : "Received invalid pincode lengths. Try again"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Received invalid pincode lengths. Try again"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18562,6 +19402,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reconnect to pump"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reconnect to pump"
@@ -18705,6 +19551,12 @@
             "value" : "Reconnect tp pump"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reconnect tp pump"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18831,6 +19683,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reconnecting..."
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reconnecting..."
@@ -18967,6 +19825,12 @@
             "value" : "Refill amount"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Refill amount"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19093,6 +19957,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Remaining insulin level"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Remaining insulin level"
@@ -19229,6 +20099,12 @@
             "value" : "Remove Pump"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Remove Pump"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19355,6 +20231,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reservoir age"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reservoir age"
@@ -19491,6 +20373,12 @@
             "value" : "Reservoir amount"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reservoir amount"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19617,6 +20505,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reservoir and cannula"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reservoir and cannula"
@@ -19753,6 +20647,12 @@
             "value" : "Reservoir is empty. Replace it now!"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reservoir is empty. Replace it now!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19879,6 +20779,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reservoir/cannula refill"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reservoir/cannula refill"
@@ -20015,6 +20921,12 @@
             "value" : "Resume"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Resume"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20141,6 +21053,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Resume delivery"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Resume delivery"
@@ -20277,6 +21195,12 @@
             "value" : "Salvar"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Save"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20402,6 +21326,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Scan"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Scan"
@@ -20538,6 +21468,12 @@
             "value" : "Scanning"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Scanning"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20664,6 +21600,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Scheduled Basal"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Scheduled Basal"
@@ -20800,6 +21742,12 @@
             "value" : "Scroll function"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Scroll function"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20931,6 +21879,12 @@
             "value" : "sec"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "sec"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21057,6 +22011,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Select insulin type"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Select insulin type"
@@ -21200,6 +22160,12 @@
             "value" : "Select insulin Type"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Select insulin Type"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21326,6 +22292,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Select the type of insulin that you will be using in this pump"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Select the type of insulin that you will be using in this pump"
@@ -21462,6 +22434,12 @@
             "value" : "Select the type of insulin that you will be using in this pump."
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Select the type of insulin that you will be using in this pump."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21593,6 +22571,12 @@
             "value" : "Select your pump"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Select your pump"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21719,6 +22703,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Set reminder for disconnect"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Set reminder for disconnect"
@@ -21862,6 +22852,12 @@
             "value" : "Set the basal profile the pump should use. Note, that it will overwrite the profile that is in the pump, with the one in %1$@"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Set the basal profile the pump should use. Note, that it will overwrite the profile that is in the pump, with the one in %1$@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22000,6 +22996,12 @@
             "value" : "Setting temp basal is not supported at this time"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Setting temp basal is not supported at this time"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22126,6 +23128,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Setting up Dana-i"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Setting up Dana-i"
@@ -22262,6 +23270,12 @@
             "value" : "Setting up DanaRS v1"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Setting up DanaRS v1"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22388,6 +23402,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Setting up DanaRS v3"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Setting up DanaRS v3"
@@ -22524,6 +23544,12 @@
             "value" : "Setup Complete"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Setup Complete"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22650,6 +23676,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Share Dana pump logs"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Share Dana pump logs"
@@ -22786,6 +23818,12 @@
             "value" : "Should time be display in 12h or 24h"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Should time be display in 12h or 24h"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22912,6 +23950,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Signal Loss"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Signal Loss"
@@ -23048,6 +24092,12 @@
             "value" : "Sound"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sound"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23177,6 +24227,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Estado"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Status"
           }
         },
         "ru" : {
@@ -23317,6 +24373,12 @@
             "value" : "Step 1: Prime cannula"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Step 1: Prime cannula"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23443,6 +24505,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Step 1: Set reservoir level"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Step 1: Set reservoir level"
@@ -23579,6 +24647,12 @@
             "value" : "Step 2: Set tube refill amount"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Step 2: Set tube refill amount"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23704,6 +24778,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Stop bolus"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Stop bolus"
@@ -23840,6 +24920,12 @@
             "value" : "Stop temp basal"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Stop temp basal"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23966,6 +25052,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Suspend"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Suspend"
@@ -24102,6 +25194,12 @@
             "value" : "Suspend delivery"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Suspend delivery"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24233,6 +25331,12 @@
             "value" : "Sync pump data"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sync pump data"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24358,6 +25462,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "temp basal"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "temp basal"
@@ -24494,6 +25604,12 @@
             "value" : "Temp Basal"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Temp Basal"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24620,6 +25736,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The Dana pumps support different delivery speeds. You can set it up here"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The Dana pumps support different delivery speeds. You can set it up here"
@@ -24756,6 +25878,12 @@
             "value" : "The Dana pumps support different delivery speeds. You can set it up here, but also in the settings menu"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The Dana pumps support different delivery speeds. You can set it up here, but also in the settings menu"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24882,6 +26010,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The insulin delivery has been suspend. Action failed"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The insulin delivery has been suspend. Action failed"
@@ -25018,6 +26152,12 @@
             "value" : "The max bolus limit is reached. Please try a lower amount or increase the limit"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The max bolus limit is reached. Please try a lower amount or increase the limit"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25144,6 +26284,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The max daily insulin limit is reached. Please try a lower amount or increase the limit"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The max daily insulin limit is reached. Please try a lower amount or increase the limit"
@@ -25280,6 +26426,12 @@
             "value" : "The pump has detected an issue with its chaft. Please remove the reservoir, check everything and try again"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The pump has detected an issue with its chaft. Please remove the reservoir, check everything and try again"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25406,6 +26558,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The pump reminds you when the amount of insulin in the pump reaches this level"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The pump reminds you when the amount of insulin in the pump reaches this level"
@@ -25542,6 +26700,12 @@
             "value" : "The time on your pump is different from the current time. Do you want to update the time on your pump to the current time?"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The time on your pump is different from the current time. Do you want to update the time on your pump to the current time?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25668,6 +26832,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The time on your pump is different from the current time. Your pump’s time controls your scheduled therapy settings. Scroll down to Pump Time row to review the time difference and configure your pump."
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The time on your pump is different from the current time. Your pump’s time controls your scheduled therapy settings. Scroll down to Pump Time row to review the time difference and configure your pump."
@@ -25804,6 +26974,12 @@
             "value" : "There has not been any interactions with the pump for too long. Either disable this function in the pump or interact with the pump"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "There has not been any interactions with the pump for too long. Either disable this function in the pump or interact with the pump"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25930,6 +27106,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This method of refilling is only intended for when the pump cannot provide a way to refill the reservoir or prime the cannula"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "This method of refilling is only intended for when the pump cannot provide a way to refill the reservoir or prime the cannula"
@@ -26066,6 +27248,12 @@
             "value" : "Time Change Detected"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Time Change Detected"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26192,6 +27380,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Toggle Bluetooth mode"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Toggle Bluetooth mode"
@@ -26328,6 +27522,12 @@
             "value" : "Toggle silent tone?"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Toggle silent tone?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26454,6 +27654,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Tube refill amount"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Tube refill amount"
@@ -26590,6 +27796,12 @@
             "value" : "Type of refill"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Type of refill"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26716,6 +27928,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "U"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "U"
@@ -26852,6 +28070,12 @@
             "value" : "U/hr"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "U/hr"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26983,6 +28207,12 @@
             "value" : "Desconhecido"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Unknown"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27109,6 +28339,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Unknown error"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Unknown error"
@@ -27245,6 +28481,12 @@
             "value" : "User options"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "User options"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27371,6 +28613,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Vibration"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Vibration"
@@ -27507,6 +28755,12 @@
             "value" : "WARNING: Please don't use this until you've read the documentation"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "WARNING: Please don't use this until you've read the documentation"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "new",
@@ -27633,6 +28887,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "WARNING: USE WITH CAUTION!"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "WARNING: USE WITH CAUTION!"
@@ -27769,6 +29029,12 @@
             "value" : "What is this?"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "What is this?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27894,6 +29160,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Yes"
@@ -28030,6 +29302,12 @@
             "value" : "Yes, 1 hour"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes, 1 hour"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28156,6 +29434,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes, 5 minutes"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Yes, 5 minutes"
@@ -28292,6 +29576,12 @@
             "value" : "Yes, 15 minutes"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes, 15 minutes"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28418,6 +29708,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes, 30 minutes"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Yes, 30 minutes"
@@ -28554,6 +29850,12 @@
             "value" : "Yes, disable bolus syncing"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes, disable bolus syncing"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28680,6 +29982,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes, Disable silent tones"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Yes, Disable silent tones"
@@ -28816,6 +30124,12 @@
             "value" : "Yes, Enable silent tones"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes, Enable silent tones"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28942,6 +30256,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes, re-enable bolus syncing"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Yes, re-enable bolus syncing"
@@ -29078,6 +30398,12 @@
             "value" : "Yes, Switch to continuous mode"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes, Switch to continuous mode"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29204,6 +30530,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes, Switch to interactive mode"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Yes, Switch to interactive mode"
@@ -29340,6 +30672,12 @@
             "value" : "Yes, Sync to Current Time"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes, Sync to Current Time"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29466,6 +30804,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your "
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Your "
@@ -29602,6 +30946,12 @@
             "value" : "Your daily basal limit has been reached. Please contact your Dana distributer to increase the limit"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your daily basal limit has been reached. Please contact your Dana distributer to increase the limit"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29728,6 +31078,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your daily insulin limit has been reached. Please contact your Dana distributer to increase the limit"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Your daily insulin limit has been reached. Please contact your Dana distributer to increase the limit"
@@ -29864,6 +31220,12 @@
             "value" : "Your pump is disconnected longer than 5 minutes!"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your pump is disconnected longer than 5 minutes!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "new",
@@ -29990,6 +31352,12 @@
           }
         },
         "pt_BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your pump is still disconnected after the set period!"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Your pump is still disconnected after the set period!"
