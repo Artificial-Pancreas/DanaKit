@@ -143,8 +143,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : ". Please go to your bluetooth settings, forget this device, and try again"
+            "state" : "translated",
+            "value" : "يرجى الذهاب إلى إعدادات البلوتوث، وحذف هذا الجهاز، ثم المحاولة مرة أخرى"
           }
         },
         "da" : {
@@ -279,7 +279,7 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%1$@%2$@ / %3$@%4$@"
           }
         },
@@ -695,8 +695,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$u %2$@"
+            "state" : "translated",
+            "value" : "%1$u%2$@"
           }
         },
         "da" : {
@@ -2508,8 +2508,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to bolus 5E?"
+            "state" : "translated",
+            "value" : "هل أنت متأكد/ة أنك تريد إعطاء جرعة بلعة مقدارها 5E؟"
           }
         },
         "da" : {
@@ -2644,8 +2644,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to set the temp basal to 200% for 1 hour?"
+            "state" : "translated",
+            "value" : "هل أنت متأكد/ة أنك تريد ضبط **المعدل القاعدي المؤقت** على **200%** لمدة ساعة واحدة؟"
           }
         },
         "da" : {
@@ -3740,8 +3740,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Battery is empty. Replace it now!"
+            "state" : "translated",
+            "value" : "البطارية فارغة. استبدلها الآن!"
           }
         },
         "da" : {
@@ -7451,8 +7451,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Bolus action"
+            "state" : "translated",
+            "value" : "DEBUG: إجراء البلعة (البولس)"
           }
         },
         "da" : {
@@ -7587,8 +7587,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Temp basal action"
+            "state" : "translated",
+            "value" : "DEBUG: إجراء المعدل القاعدي المؤقت"
           }
         },
         "da" : {
@@ -8134,8 +8134,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Device found!"
+            "state" : "translated",
+            "value" : "تم العثور على الجهاز!"
           }
         },
         "da" : {
@@ -8414,8 +8414,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Disconnect"
+            "state" : "translated",
+            "value" : "قطع الاتصال"
           }
         },
         "da" : {
@@ -8961,8 +8961,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Do bolus"
+            "state" : "translated",
+            "value" : "إعطاء بلعة (بولس)"
           }
         },
         "da" : {
@@ -9647,7 +9647,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "أثناء عملية الاقتران، سيظهر لك جهاز DanaRS v1 الخاص بك مطالبة بالاقتران بينما سيظهر لك جهاز iPhone مطالبة برمز الاقتران. على المضخة الخاصة بك، حدد موافق واكتب الرمز على جهاز iPhone الخاص بك. بعد ذلك، تصبح Loop جاهزة للتواصل مع مضخة DanaRS v1 الخاصة بك"
+            "value" : "أثناء عملية المزاوجة (الاقتران)، ستُظهر مضخة DanaRS v1 شاشة مطالبة بالمزاوجة بينما سيُظهر هاتف iPhone الخاص بك مطالبة بإدخال رمز المزاوجة. على المضخة الخاصة بك، اختر **موافق** واكتب الرمز على جهاز iPhone الخاص بك. بعد ذلك، يكون Loop جاهزاً للتواصل مع مضخة DanaRS v1."
           }
         },
         "da" : {
@@ -9790,8 +9790,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "During the pairing process, your DanaRS v3 will show a pairing prompt while you iPhone will show a prompt for a pairing code. On your pump, select OK and type the code on your iPhone. After that, Loop is ready to communicate with your DanaRS v1"
+            "state" : "translated",
+            "value" : "أثناء عملية المزاوجة (الاقتران)، ستُظهر مضخة DanaRS v3 شاشة مطالبة بالمزاوجة بينما سيُظهر هاتف iPhone الخاص بك مطالبة بإدخال رمز المزاوجة. على المضخة الخاصة بك، اختر **موافق** واكتب الرمز على جهاز iPhone الخاص بك. بعد ذلك، يكون Loop جاهزاً للتواصل مع مضخة DanaRS v1."
           }
         },
         "da" : {
@@ -10066,7 +10066,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "أثناء عملية الاقتران، ستظهر لك مضخة DanaRS v3 مطالبة بالاقتران بينما سيظهر لك جهاز iPhone مطالبة برمزي اقتران. على المضخة الخاصة بك، حدد موافق واكتب الرمزين على جهاز iPhone الخاص بك. بعد ذلك، تصبح Loop جاهزة للتواصل مع جهاز DanaRS v3 الخاص بك"
+            "value" : "أثناء عملية المزاوجة (الاقتران)، ستُظهر مضخة DanaRS v3 شاشة مطالبة بالمزاوجة بينما سيُظهر هاتف iPhone الخاص بك مطالبة بإدخال **رمزي مزاوجة**. على المضخة الخاصة بك، اختر **موافق** واكتب الرمزين على جهاز iPhone الخاص بك. بعد ذلك، يكون Loop جاهزاً للتواصل مع مضخة DanaRS v3."
           }
         },
         "da" : {
@@ -10481,8 +10481,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Error while starting scanning for devices..."
+            "state" : "translated",
+            "value" : "حدث خطأ أثناء بدء البحث عن الأجهزة..."
           }
         },
         "da" : {
@@ -11591,8 +11591,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Failed to pair to "
+            "state" : "translated",
+            "value" : "فشل الاقتران بـ"
           }
         },
         "da" : {
@@ -15030,8 +15030,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No insulin type available. Please configure this in the Dana menu"
+            "state" : "translated",
+            "value" : "لا يوجد نوع أنسولين متاح. يرجى تهيئته (تكوينه) في قائمة Dana"
           }
         },
         "da" : {
@@ -16270,8 +16270,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Oke"
+            "state" : "translated",
+            "value" : "حسناً"
           }
         },
         "da" : {
@@ -17393,8 +17393,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Prime amount"
+            "state" : "translated",
+            "value" : "كمية التحضير (Prime)"
           }
         },
         "da" : {
@@ -18222,8 +18222,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Pump is disconnected"
+            "state" : "translated",
+            "value" : "المضخة غير متصلة"
           }
         },
         "da" : {
@@ -19325,8 +19325,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reconnect to pump"
+            "state" : "translated",
+            "value" : "إعادة الاتصال بالمضخة"
           }
         },
         "da" : {
@@ -21249,8 +21249,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Scan"
+            "state" : "translated",
+            "value" : "مسح"
           }
         },
         "da" : {
@@ -21934,8 +21934,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Select insulin type"
+            "state" : "translated",
+            "value" : "اختر نوع الأنسولين"
           }
         },
         "da" : {
@@ -24701,8 +24701,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Stop bolus"
+            "state" : "translated",
+            "value" : "إيقاف البلعة (البولس)"
           }
         },
         "da" : {
@@ -25385,8 +25385,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "temp basal"
+            "state" : "translated",
+            "value" : "المعدل القاعدي المؤقت"
           }
         },
         "da" : {
@@ -26481,8 +26481,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "The pump reminds you when the amount of insulin in the pump reaches this level"
+            "state" : "translated",
+            "value" : "تُذكّرك المضخة عندما تصل كمية الأنسولين فيها إلى هذا المستوى"
           }
         },
         "da" : {
@@ -28673,8 +28673,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "WARNING: Please don't use this until you've read the documentation"
+            "state" : "translated",
+            "value" : "تحذير: يرجى عدم استخدام هذا حتى تقرأ الوثائق"
           }
         },
         "da" : {
@@ -31138,8 +31138,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Your pump is disconnected longer than 5 minutes!"
+            "state" : "translated",
+            "value" : "المضخة الخاصة بك غير متصلة لأكثر من 5 دقائق!"
           }
         },
         "da" : {
