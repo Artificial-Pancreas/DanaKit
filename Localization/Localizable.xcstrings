@@ -103,7 +103,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " je pripravená na používanie!"
+            "value" : " je pripravená na použitie!"
           }
         },
         "sv" : {
@@ -240,7 +240,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ". Prejdi do nastavení bluetooth, odstráň toto zariadenie a skús to znova"
+            "value" : ". Prosím, prejdite do nastavení Bluetooth, odstráňte toto zariadenie a skúste to znova"
           }
         },
         "sv" : {
@@ -656,7 +656,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ jednotiek zostávajúcich na %2$@"
+            "value" : "%1$@ zostávajúcich jednotiek o %2$@"
           }
         },
         "sv" : {
@@ -1778,7 +1778,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pripomienka kontroly glykémie bola vo vašej pumpe nastavená a práve sa spustila. Prosím, odstráňte ju alebo zadajte do pumpy svoju hodnotu glykémie"
+            "value" : "Pripomienka kontroly hladiny glykémie v krvi bola nastavená vo vašej pumpe a bola aktivovaná. Prosím, odstráňte ju alebo zadajte svoju hladinu glukózy do pumpy"
           }
         },
         "sv" : {
@@ -1915,7 +1915,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Časový limit pre podanie bolusu je aktívny. Cyklus slučky sa nemôže dokončiť, kým nie je časový limit neaktívny"
+            "value" : "Časový limit bolusu je aktívny. Cyklus slučky nemôže byť dokončený, kým nebude časový limit neaktívny"
           }
         },
         "sv" : {
@@ -2195,7 +2195,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Po nastavení typu inzulínu a rýchlosti bolusu sa zobrazí obrazovka so všetkými nájdenými pumpami Dana. Vyberte pumpu, ktorú chcete prepojiť so stránkou %1$@."
+            "value" : "Po nastavení typu inzulínu a rýchlosti bolusu uvidíte obrazovku so všetkými nájdenými pumpami Dana. Vyberte pumpu, ktorú chcete spárovať s %1$@."
           }
         },
         "sv" : {
@@ -2332,7 +2332,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Upozornenia"
+            "value" : "Pípanie alarmu"
           }
         },
         "sv" : {
@@ -2741,7 +2741,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Si si istý, že chceš nastaviť dočasný bazál na 200 % na 1 hodinu?"
+            "value" : "Naozaj chcete nastaviť dočasnú bazálnu dávku na 200 % na 1 hodinu?"
           }
         },
         "sv" : {
@@ -2878,7 +2878,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ste si istí, že chcete prestať používať Dana-i/RS?"
+            "value" : "Naozaj chcete prestať používať Dana-i/RS?"
           }
         },
         "sv" : {
@@ -3152,7 +3152,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bazálna"
+            "value" : "Bazál"
           }
         },
         "sv" : {
@@ -3289,7 +3289,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Základné porovnanie"
+            "value" : "Porovnanie bazálu"
           }
         },
         "sv" : {
@@ -3426,7 +3426,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dosiahnutý základný limit"
+            "value" : "Dosiahnutý limit bazálu"
           }
         },
         "sv" : {
@@ -3837,7 +3837,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Batéria je vybitá. Vymeň ju teraz!"
+            "value" : "Batéria je vybitá. Vymeňte ju teraz!"
           }
         },
         "sv" : {
@@ -6309,7 +6309,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pripája sa"
+            "value" : "Pripájanie"
           }
         },
         "sv" : {
@@ -7412,7 +7412,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "deň(y)"
+            "value" : "deň/dni"
           }
         },
         "sv" : {
@@ -8922,7 +8922,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Odpojenie..."
+            "value" : "Odpájanie..."
           }
         },
         "sv" : {
@@ -9749,7 +9749,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Počas procesu párovania sa na displeji DanaRS v1 zobrazí výzva na spárovanie, zatiaľ čo na displeji iPhone sa zobrazí výzva na zadanie párovacieho kódu. Na čerpadle vyberte OK a zadajte kód na iPhone. Potom je zariadenie Loop pripravené na komunikáciu s vaším zariadením DanaRS v1"
+            "value" : "Počas procesu párovania sa na vašej pumpe DanaRS v1 zobrazí výzva na párovanie, zatiaľ čo na vašom iPhone sa zobrazí výzva na zadanie párovacieho kódu. Na pumpe vyberte OK a zadajte kód na vašom iPhone. Potom je Loop pripravený komunikovať s vašou pumpou DanaRS v1"
           }
         },
         "sv" : {
@@ -9887,7 +9887,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Počas procesu párovania sa na vašom zariadení DanaRS v3 zobrazí výzva na párovanie, zatiaľ čo na vašom iPhone sa zobrazí výzva na zadanie párovacieho kódu. Na pumpe vyberte OK a zadajte kód do Vášho iPhonu. Potom je iAPS pripravený komunikovať s vaším zariadením DanaRS v1"
+            "value" : "Počas procesu párovania sa na vašej pumpe DanaRS v3 zobrazí výzva na párovanie, zatiaľ čo na vašom iPhone sa zobrazí výzva na zadanie párovacieho kódu. Na pumpe vyberte OK a zadajte kód na vašom iPhone. Potom je Loop pripravený komunikovať s vašou pumpou DanaRS v1"
           }
         },
         "sv" : {
@@ -10024,7 +10024,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Počas procesu párovania zobrazí tvoja DanaRS v3 výzvu na párovanie, zatiaľ čo tvoj iPhone zobrazí výzvu na zadanie dvoch párovacích kódov. Na pumpe zvoľ OK a zadaj oba kódy do svojho iPhonu. Potom bude %1$@ pripravený komunikovať s tvojou DanaRS v3"
+            "value" : "Počas procesu párovania sa na vašej pumpe DanaRS v3 zobrazí výzva na párovanie, zatiaľ čo na vašom iPhone sa zobrazí výzva na zadanie dvoch párovacích kódov. Na pumpe vyberte OK a zadajte oba kódy na vašom iPhone. Potom je %1$@ pripravený komunikovať s vašou pumpou DanaRS v3"
           }
         },
         "sv" : {
@@ -10168,7 +10168,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Počas procesu párovania sa na displeji DanaRS v3 zobrazí výzva na spárovanie, zatiaľ čo na displeji iPhonu sa zobrazí výzva na zadanie dvoch párovacích kódov. Na čerpadle vyberte OK a zadajte dva kódy na iPhone. Potom je zariadenie Loop pripravené na komunikáciu s vaším zariadením DanaRS v3"
+            "value" : "Počas procesu párovania sa na vašej pumpe DanaRS v3 zobrazí výzva na párovanie, zatiaľ čo na vašom iPhone sa zobrazí výzva na zadanie dvoch párovacích kódov. Na pumpe vyberte OK a zadajte oba kódy na vašom iPhone. Potom je Loop pripravený komunikovať s vašou pumpou DanaRS v3"
           }
         },
         "sv" : {
@@ -11126,7 +11126,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nepodarilo sa nastaviť odpruženie"
+            "value" : "Nepodarilo sa pozastavenie"
           }
         },
         "sv" : {
@@ -11825,7 +11825,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nepodarilo sa naplniť kanylu. Skúste to prosím neskôr"
+            "value" : "Nepodarilo sa naplniť kanylu. Skúste to, prosím, neskôr"
           }
         },
         "sv" : {
@@ -11962,7 +11962,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nepodarilo sa naplniť trubicu. Skúste to prosím neskôr"
+            "value" : "Nepodarilo sa naplniť hadičku. Skúste to, prosím, neskôr"
           }
         },
         "sv" : {
@@ -12236,7 +12236,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vyplňte heslo"
+            "value" : "Zadajte heslo"
           }
         },
         "sv" : {
@@ -20257,7 +20257,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Odstrániť Pod"
+            "value" : "Odstrániť pumpu"
           }
         },
         "sv" : {
@@ -20394,7 +20394,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Množstvo zásobníka"
+            "value" : "Množstvo v zásobníku"
           }
         },
         "sv" : {
@@ -20668,7 +20668,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zásobník je prázdna. Teraz ho vymeňte!"
+            "value" : "Zásobník je prázdny. Vymeňte ho teraz!"
           }
         },
         "sv" : {
@@ -24668,7 +24668,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Krok 2: Nastavenie množstva náplne do tuby"
+            "value" : "Krok 2: Nastavenie množstva náplne do hadičky"
           }
         },
         "sv" : {
@@ -25078,7 +25078,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pozastavenie"
+            "value" : "Pozastaviť"
           }
         },
         "sv" : {
@@ -26584,7 +26584,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pumpa ťa upozorní, keď množstvo inzulínu v pumpe dosiahne túto úroveň"
+            "value" : "Pumpa vám pripomenie, keď množstvo inzulínu v pumpe dosiahne túto úroveň."
           }
         },
         "sv" : {
@@ -27406,7 +27406,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bluetooth modus schakelen"
+            "value" : "Prepínanie režimu Bluetooth"
           }
         },
         "sv" : {
