@@ -37,6 +37,11 @@ class InteractiveBluetoothManager: NSObject, BluetoothManager {
     }
 
     func ensureConnected(_ completion: @escaping (ConnectionResult) -> Void, _: String = #function) {
+        guard connectionCallback == nil else {
+            completion(.alreadyConnectedAndBusy)
+            return
+        }
+        
         connectionCallback = { result in
             self.isBusy = true
             self.timoutCallback?.cancel()

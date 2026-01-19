@@ -78,11 +78,8 @@ class PeripheralManager: NSObject {
         writeQ.lock()
         defer { writeQ.unlock() }
 
-        log.info("Waiting for response...")
         // Wait for response or timeout timer...
         writeQ.wait()
-
-        log.info("Waiting done!")
 
         writeTimeoutTask?.cancel()
         writeTimeoutTask = nil
