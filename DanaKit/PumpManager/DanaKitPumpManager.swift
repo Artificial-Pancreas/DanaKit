@@ -188,6 +188,10 @@ public class DanaKitPumpManager: DeviceManager {
 }
 
 extension DanaKitPumpManager: PumpManager {
+    public func estimatedDuration(toBolus units: Double) -> TimeInterval {
+        self.state.bolusSpeed.calculate(units: units)
+    }
+    
     public static var onboardingMaximumBasalScheduleEntryCount: Int {
         24
     }
