@@ -28,7 +28,7 @@ class PeripheralManager: NSObject {
     private var writeCharacteristic: CBCharacteristic?
 
     private var writeQueue: NSCondition?
-    private var writeTimeoutTask: Task<Void, Never>?
+    private var writeTimeout: BlockOperation?
     private var writeResponse: (any DanaParsePacketProtocol)?
 
     private var historyLog: [HistoryItem] = []
@@ -54,7 +54,7 @@ class PeripheralManager: NSObject {
     }
 
     deinit {
-        self.writeTimeoutTask?.cancel()
+        self.writeTimeout?.cancel()
 
         if let semaphore = self.writeQueue {
             semaphore.signal()
@@ -78,14 +78,11 @@ class PeripheralManager: NSObject {
         writeQ.lock()
         defer { writeQ.unlock() }
 
-        log.info("Waiting for response...")
         // Wait for response or timeout timer...
         writeQ.wait()
 
-        log.info("Waiting done!")
-
-        writeTimeoutTask?.cancel()
-        writeTimeoutTask = nil
+        writeTimeout?.cancel()
+        writeTimeout = nil
         writeQueue = nil
 
         guard let response = writeResponse else {
@@ -129,25 +126,27 @@ class PeripheralManager: NSObject {
             data = data.subdata(in: end ..< data.count)
         }
 
-        writeTimeoutTask = Task {
-            do {
-                try await Task.sleep(nanoseconds: UInt64(!isHistoryPacket ? .seconds(4) : .seconds(21)) * 1_000_000_000)
-                guard let semaphore = self.writeQueue else {
-                    // We did what we must, so exist and be happy :)
-                    return
-                }
-
-                self.log.error("Timeout has been hit...")
-                semaphore.signal()
-
-                // We hit a timeout
-                // This means the pump received the message but could decrypt it
-                // We need to reconnect in order to fix the encryption keys
-                self.bluetoothManager.manager.cancelPeripheralConnection(self.connectedDevice)
-                self.writeTimeoutTask = nil
-            } catch {
-                // Task was cancelled because message has been received
+        writeTimeout = BlockOperation { [weak self] in
+            guard let self else { return }
+            
+            Thread.sleep(forTimeInterval: isHistoryPacket ? .seconds(4) : .seconds(21))
+            if self.writeTimeout == nil || self.writeTimeout!.isCancelled {
+                // We did what we must, so exist and be happy :)
+                return
             }
+            guard let semaphore = self.writeQueue else {
+                // We did what we must, so exist and be happy :)
+                return
+            }
+
+            self.log.error("Timeout has been hit...")
+            semaphore.signal()
+
+            // We hit a timeout
+            // This means the pump received the message but could decrypt it
+            // We need to reconnect in order to fix the encryption keys
+            self.bluetoothManager.manager.cancelPeripheralConnection(self.connectedDevice)
+            self.writeTimeout = nil
         }
     }
 

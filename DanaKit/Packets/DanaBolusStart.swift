@@ -17,6 +17,17 @@ public enum BolusSpeed: UInt8 {
             return LocalizedString("60 sec/U", comment: "Dana bolus speed 60u per min")
         }
     }
+    
+    func calculate(units: Double) -> Double {
+        switch self {
+        case .speed12:
+            return units * 12 // 12sec/U
+        case .speed30:
+            return units * 30 // 30sec/U
+        case .speed60:
+            return units * 60 // 60sec/U
+        }
+    }
 }
 
 struct PacketBolusStart {
