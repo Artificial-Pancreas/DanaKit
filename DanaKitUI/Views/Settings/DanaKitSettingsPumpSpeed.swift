@@ -13,13 +13,14 @@ struct DanaKitSettingsPumpSpeed: View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading) {
                 List {
-                    Section(header: SectionHeader(label: LocalizedString(
+                    Section(header: SectionHeader(label: String(
+                        localized:
                         "Select the bolus delivery speed",
                         comment: "Dana delivery speed body"
                     ))) {
                         CheckmarkListItem(
                             title: Text(BolusSpeed.speed12.format()),
-                            description: Text(""),
+                            description: Text("The fastest bolus speed option", comment: "bolusSpeed 12s/u"),
                             isSelected: Binding(
                                 get: { self.value == 0 },
                                 set: { isSelected in
@@ -31,7 +32,7 @@ struct DanaKitSettingsPumpSpeed: View {
                         )
                         CheckmarkListItem(
                             title: Text(BolusSpeed.speed30.format()),
-                            description: Text(""),
+                            description: Text("The middle bolus speed option", comment: "bolusSpeed 30s/u"),
                             isSelected: Binding(
                                 get: { self.value == 1 },
                                 set: { isSelected in
@@ -43,7 +44,7 @@ struct DanaKitSettingsPumpSpeed: View {
                         )
                         CheckmarkListItem(
                             title: Text(BolusSpeed.speed60.format()),
-                            description: Text(""),
+                            description: Text("The slowest bolus speed option", comment: "bolusSpeed 60s/u"),
                             isSelected: Binding(
                                 get: { self.value == 2 },
                                 set: { isSelected in
@@ -56,7 +57,7 @@ struct DanaKitSettingsPumpSpeed: View {
                     }
                 }
             }
-            
+
             Spacer()
 
             ContinueButton(action: {
@@ -68,10 +69,6 @@ struct DanaKitSettingsPumpSpeed: View {
         }
         .edgesIgnoringSafeArea(.bottom)
         .navigationBarHidden(false)
-        .navigationTitle(LocalizedString("Delivery speed", comment: "Title for delivery speed"))
+        .navigationTitle(String(localized: "Delivery speed", comment: "Title for delivery speed"))
     }
-}
-
-#Preview {
-    DanaKitSettingsPumpSpeed(value: 0)
 }
