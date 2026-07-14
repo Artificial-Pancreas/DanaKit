@@ -514,7 +514,6 @@ struct DanaKitSettingsView: View {
         }
         .listStyle(InsetGroupedListStyle())
         .navigationBarItems(trailing: doneButton)
-        .navigationBarTitle(viewModel.pumpModel)
     }
 
     private var doneButton: some View {

@@ -38,6 +38,5 @@ struct InsulinTypeConfirmation: View {
         }
         .edgesIgnoringSafeArea(.bottom)
         .navigationBarHidden(false)
-        .navigationTitle(String(localized: "Insulin Type", comment: "Title for insulin type"))
     }
 }
