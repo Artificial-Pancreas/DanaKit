@@ -13,6 +13,11 @@ enum DanaUIScreen {
     case deviceScanningScreen
     case setupComplete
     case settings
+    case userOptions
+    case bolusSpeed
+    case insulinType
+    case refillCannulaOnly
+    case refillFull
 
     func next() -> DanaUIScreen? {
         switch self {
@@ -28,9 +33,7 @@ enum DanaUIScreen {
             return .deviceScanningScreen
         case .deviceScanningScreen:
             return .setupComplete
-        case .setupComplete:
-            return nil
-        case .settings:
+        default:
             return nil
         }
     }
@@ -207,7 +210,14 @@ class DanaUICoordinator: UINavigationController, PumpManagerOnboarding, Completi
             )
 
         case .settings:
-            let viewModel = DanaKitSettingsViewModel(pumpManager, stepFinished)
+            let viewModel = DanaKitSettingsViewModel(
+                pumpManager,
+                toUserOptions: { self.navigateTo(.userOptions) },
+                toBolusSpeed: { self.navigateTo(.bolusSpeed) },
+                toInsulinType: { self.navigateTo(.insulinType) },
+                toRefill: { cannulaOnly in self.navigateTo(cannulaOnly ? .refillCannulaOnly : .refillFull) },
+                didFinish: stepFinished
+            )
             let view = DanaKitSettingsView(
                 viewModel: viewModel,
                 supportedInsulinTypes: allowedInsulinTypes,
@@ -215,7 +225,56 @@ class DanaUICoordinator: UINavigationController, PumpManagerOnboarding, Completi
             )
             return hostingController(
                 rootView: view,
-                title: viewModel.pumpModel
+                title: pumpManager?.state.getFriendlyDeviceName() ?? ""
+            )
+
+        case .userOptions:
+            let viewModel = DanaKitUserSettingsViewModel(pumpManager)
+            return hostingController(
+                rootView: DanaKitUserSettingsView(viewModel: viewModel),
+                title: String(localized: "User options", comment: "Title for user options")
+            )
+
+        case .bolusSpeed:
+            let bolusSpeedChanged: (BolusSpeed) -> Void = { bolusSpeed in
+                self.pumpManager?.state.bolusSpeed = bolusSpeed
+                self.pumpManager?.notifyStateDidChange()
+            }
+
+            return hostingController(
+                rootView: DanaKitSettingsPumpSpeed(
+                    value: Int(pumpManager?.state.bolusSpeed.rawValue ?? 0),
+                    didChange: bolusSpeedChanged
+                ),
+                title: String(localized: "Delivery speed", comment: "Title for delivery speed")
+            )
+
+        case .insulinType:
+            let confirmInsulinType: (InsulinType) -> Void = { insulinType in
+                self.pumpManager?.state.insulinType = insulinType
+                self.pumpManager?.notifyStateDidChange()
+            }
+            return hostingController(
+                rootView: InsulinTypeView(
+                    initialValue: pumpManager?.state.insulinType ?? allowedInsulinTypes[0],
+                    supportedInsulinTypes: allowedInsulinTypes,
+                    didConfirm: confirmInsulinType
+                ),
+                title: String(localized: "Insulin Type", comment: "Title for insulin type")
+            )
+
+        case .refillCannulaOnly:
+            let viewModel = DanaKitRefillReservoirCannulaViewModel(pumpManager: pumpManager, cannulaOnly: true)
+            return hostingController(
+                rootView: DanaKitRefillReservoirAndCannulaView(viewModel: viewModel),
+                title: String(localized: "Cannula refill", comment: "Title for reservoir/cannula refill")
+            )
+
+        case .refillFull:
+            let viewModel = DanaKitRefillReservoirCannulaViewModel(pumpManager: pumpManager, cannulaOnly: false)
+            return hostingController(
+                rootView: DanaKitRefillReservoirAndCannulaView(viewModel: viewModel),
+                title: String(localized: "Reservoir/cannula refill", comment: "Title for reservoir/cannula refill")
             )
         }
     }

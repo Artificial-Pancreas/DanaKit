@@ -31,12 +31,9 @@ public struct DanaKitPumpManagerState: RawRepresentable, Equatable {
         ignorePassword = rawValue["ignorePassword"] as? Bool ?? false
         devicePassword = rawValue["devicePassword"] as? UInt16 ?? 0
         isOnBoarded = rawValue["isOnBoarded"] as? Bool ?? false
-        basalDeliveryDate = rawValue["basalDeliveryDate"] as? Date ?? Date.now
         pumpTime = rawValue["pumpTime"] as? Date
         pumpTimeSyncedAt = rawValue["pumpTimeSyncedAt"] as? Date
         basalSchedule = rawValue["basalSchedule"] as? [Double] ?? []
-        tempBasalUnits = rawValue["tempBasalUnits"] as? Double
-        tempBasalDuration = rawValue["tempBasalDuration"] as? Double
         ble5Keys = rawValue["ble5Keys"] as? Data ?? Data([0, 0, 0, 0, 0, 0])
         pairingKey = rawValue["pairingKey"] as? Data ?? Data([0, 0, 0, 0, 0, 0])
         randomPairingKey = rawValue["randomPairingKey"] as? Data ?? Data([0, 0, 0])
@@ -92,6 +89,25 @@ public struct DanaKitPumpManagerState: RawRepresentable, Equatable {
         } else {
             basalDeliveryOrdinal = .active
         }
+
+        if let unfinalizedBasalRaw = rawValue["basalDose"] as? UnfinalizedDose.RawValue {
+            basalDose = UnfinalizedDose(rawValue: unfinalizedBasalRaw) ??
+                UnfinalizedDose(
+                    basalRate: Self.getScheduledBasalRate(basalSchedule: basalSchedule, date: Date.now),
+                    insulinType: insulinType
+                )
+        } else {
+            basalDose = UnfinalizedDose(
+                basalRate: Self.getScheduledBasalRate(basalSchedule: basalSchedule, date: Date.now),
+                insulinType: insulinType
+            )
+        }
+
+        if let unfinalizedRaw = rawValue["bolusDose"] as? UnfinalizedDose.RawValue {
+            bolusDose = UnfinalizedDose(rawValue: unfinalizedRaw)
+        } else {
+            bolusDose = nil
+        }
     }
 
     public init(basalSchedule: [Double]? = nil) {
@@ -107,7 +123,6 @@ public struct DanaKitPumpManagerState: RawRepresentable, Equatable {
         devicePassword = 0
         bolusSpeed = .speed12
         isOnBoarded = false
-        basalDeliveryDate = Date.now
         bolusState = .noBolus
         self.basalSchedule = basalSchedule ?? []
         ble5Keys = Data([0, 0, 0, 0, 0, 0])
@@ -136,6 +151,10 @@ public struct DanaKitPumpManagerState: RawRepresentable, Equatable {
         isBolusSyncDisabled = false
         batteryAge = nil
         pumpTimeZone = nil
+        basalDose = UnfinalizedDose(
+            basalRate: Self.getScheduledBasalRate(basalSchedule: basalSchedule ?? [], date: Date.now),
+            insulinType: insulinType
+        )
     }
 
     public var rawValue: RawValue {
@@ -155,14 +174,12 @@ public struct DanaKitPumpManagerState: RawRepresentable, Equatable {
         value["insulinType"] = insulinType?.rawValue
         value["bolusSpeed"] = bolusSpeed.rawValue
         value["isOnBoarded"] = isOnBoarded
-        value["basalDeliveryDate"] = basalDeliveryDate
         value["basalDeliveryOrdinal"] = basalDeliveryOrdinal.rawValue
         value["bolusState"] = bolusState.rawValue
         value["pumpTime"] = pumpTime
         value["pumpTimeSyncedAt"] = pumpTimeSyncedAt
         value["basalSchedule"] = basalSchedule
-        value["tempBasalUnits"] = tempBasalUnits
-        value["tempBasalDuration"] = tempBasalDuration
+        value["basalDose"] = basalDose.rawValue
         value["ble5Keys"] = ble5Keys
         value["pairingKey"] = pairingKey
         value["randomPairingKey"] = randomPairingKey
@@ -188,6 +205,7 @@ public struct DanaKitPumpManagerState: RawRepresentable, Equatable {
         value["isBolusSyncDisabled"] = isBolusSyncDisabled
         value["batteryAge"] = batteryAge
         value["pumpTimeZone"] = pumpTimeZone?.secondsFromGMT()
+        value["bolusDose"] = bolusDose?.rawValue
 
         return value
     }
@@ -225,10 +243,6 @@ public struct DanaKitPumpManagerState: RawRepresentable, Equatable {
     public var batteryAge: Date?
     public var batteryRemaining: Double = 0
 
-    public var isPumpSuspended: Bool = false
-
-    public var isTempBasalInProgress: Bool = false
-
     public var bolusState: BolusState = .noBolus
 
     public var insulinType: InsulinType?
@@ -240,6 +254,8 @@ public struct DanaKitPumpManagerState: RawRepresentable, Equatable {
     public var devicePassword: UInt16 = 0
 
     public var basalSchedule: [Double]
+
+    public var bolusDose: UnfinalizedDose?
 
     public var ble5Keys = Data([0, 0, 0, 0, 0, 0])
 
@@ -276,29 +292,17 @@ public struct DanaKitPumpManagerState: RawRepresentable, Equatable {
     public var refillAmount: UInt16
     public var targetBg: UInt16?
 
-    public var basalDeliveryDate = Date.now
     public var basalDeliveryOrdinal: DanaKitBasal = .active
-    public var tempBasalUnits: Double?
-    public var tempBasalDuration: Double?
-    public var tempBasalEndsAt: Date {
-        basalDeliveryDate + (tempBasalDuration ?? 0)
-    }
+    public var basalDose: UnfinalizedDose
 
     public var basalDeliveryState: PumpManagerStatus.BasalDeliveryState {
         switch basalDeliveryOrdinal {
         case .active:
-            return .active(basalDeliveryDate)
+            return .active(basalDose.startDate)
         case .suspended:
-            return .suspended(basalDeliveryDate)
+            return .suspended(basalDose.startDate)
         case .tempBasal:
-            return .tempBasal(
-                DoseEntry.tempBasal(
-                    absoluteUnit: tempBasalUnits ?? 0,
-                    duration: tempBasalDuration ?? 0,
-                    insulinType: insulinType!,
-                    startDate: basalDeliveryDate
-                )
-            )
+            return .tempBasal(basalDose.toDoseEntry(endDate: nil))
         }
     }
 
@@ -416,6 +420,25 @@ public struct DanaKitPumpManagerState: RawRepresentable, Equatable {
         // Dana-i (BLE5)
         return 2
     }
+
+    public func getScheduledBasalRate(date: Date = Date.now) -> Double {
+        Self.getScheduledBasalRate(basalSchedule: basalSchedule, date: date)
+    }
+
+    private static let basalIntervals: [TimeInterval] = Array(0 ..< 24).map({ TimeInterval(60 * 60 * $0) })
+    private static func getScheduledBasalRate(basalSchedule: [Double], date _: Date) -> Double {
+        guard !basalSchedule.isEmpty else {
+            // Prevent crash if basalSchedule isnt set
+            return 0
+        }
+
+        let now = Date()
+        let startOfDay = Calendar.current.startOfDay(for: now)
+        let nowTimeInterval = now.timeIntervalSince(startOfDay)
+
+        let index = (basalIntervals.firstIndex(where: { $0 > nowTimeInterval }) ?? 24) - 1
+        return basalSchedule.indices.contains(index) ? basalSchedule[index] : 0
+    }
 }
 
 extension DanaKitPumpManagerState: CustomDebugStringConvertible {
@@ -430,7 +453,7 @@ extension DanaKitPumpManagerState: CustomDebugStringConvertible {
             "* pumpProtocol: \(pumpProtocol)",
             "* lastStatusDate: \(lastStatusDate)",
             "* pumpTime: \(pumpTime ?? Date.distantPast)",
-            "* insulinType: \(insulinType ?? .none)",
+            "* insulinType: \(String(describing: insulinType))",
             "* reservoirLevel: \(reservoirLevel)",
             "* bolusState: \(bolusState.rawValue)",
             "* basalDeliveryOrdinal: \(basalDeliveryOrdinal)",

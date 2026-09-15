@@ -46,13 +46,24 @@ public class DanaKitPumpManager: DeviceManager {
             name: UIApplication.willEnterForegroundNotification,
             object: nil
         )
+
+        // Rehydrate an in-progress bolus that survived an app restart so its IOB is not lost and it
+        // can be reconciled against pump history on the next sync
+        if let pending = state.bolusDose {
+            if pending.expectedEndDate > Date.now {
+                doseReporter = DanaKitDoseProgressReporter(total: pending.value)
+            }
+            // Clear the persisted in-progress flag so continuous-mode syncing is not blocked; the
+            // pending dose remains and is finalized against pump history on the next sync.
+            self.state.bolusState = .noBolus
+        }
     }
 
     public required convenience init?(rawState: PumpManager.RawStateValue) {
         self.init(state: DanaKitPumpManagerState(rawValue: rawState))
     }
 
-    private let log = DanaLogger(category: "DanaKitPumpManager")
+    let log = DanaLogger(category: "DanaKitPumpManager")
     public let pumpDelegate = WeakSynchronizedDelegate<PumpManagerDelegate>()
 
     private let statusObservers = WeakSynchronizedSet<PumpManagerStatusObserver>()
@@ -60,8 +71,8 @@ public class DanaKitPumpManager: DeviceManager {
     private let scanDeviceObservers = WeakSynchronizedSet<StateObserver>()
 
     private var isPriming = false
-    private var doseReporter: DanaKitDoseProgressReporter?
-    private var doseEntry: UnfinalizedDose?
+    var doseReporter: DanaKitDoseProgressReporter?
+    private var lastReportedBolusStep: Int = 0
 
     public var isOnboarded: Bool {
         state.isOnBoarded
@@ -69,21 +80,6 @@ public class DanaKitPumpManager: DeviceManager {
 
     public var isBluetoothConnected: Bool {
         bluetooth.isConnected
-    }
-
-    private let basalIntervals: [TimeInterval] = Array(0 ..< 24).map({ TimeInterval(60 * 60 * $0) })
-    public var currentBaseBasalRate: Double {
-        guard !state.basalSchedule.isEmpty else {
-            // Prevent crash if basalSchedule isnt set
-            return 0
-        }
-
-        let now = Date()
-        let startOfDay = Calendar.current.startOfDay(for: now)
-        let nowTimeInterval = now.timeIntervalSince(startOfDay)
-
-        let index = (basalIntervals.firstIndex(where: { $0 > nowTimeInterval }) ?? 24) - 1
-        return state.basalSchedule.indices.contains(index) ? state.basalSchedule[index] : 0
     }
 
     public var status: PumpManagerStatus {
@@ -137,7 +133,7 @@ public class DanaKitPumpManager: DeviceManager {
         provideHeartbeat = mustProvideBLEHeartbeat
     }
 
-    private func issueHeartbeatIfNeeded() {
+    func issueHeartbeatIfNeeded() {
         if provideHeartbeat, Date().timeIntervalSince(lastHeartbeat) > 2 * 60 {
             pumpDelegate.notify { delegate in
                 guard let delegate = delegate else {
@@ -275,14 +271,7 @@ extension DanaKitPumpManager: PumpManager {
 
     private func status(_ state: DanaKitPumpManagerState) -> LoopKit.PumpManagerStatus {
         // Check if temp basal is expired, before constructing basalDeliveryState
-        if self.state.basalDeliveryOrdinal == .tempBasal, self.state.tempBasalEndsAt < Date.now {
-            self.state.basalDeliveryOrdinal = .active
-            self.state.basalDeliveryDate = Date.now
-            self.state.tempBasalDuration = nil
-            self.state.tempBasalUnits = nil
-        }
-
-        return PumpManagerStatus(
+        PumpManagerStatus(
             timeZone: state.pumpTimeZone ?? TimeZone.current,
             device: device(),
             pumpBatteryChargeRemaining: state.batteryRemaining / 100,
@@ -301,7 +290,7 @@ extension DanaKitPumpManager: PumpManager {
         case .canceling:
             return .canceling
         case .inProgress:
-            if let dose = doseEntry?.toDoseEntry(endDate: nil) {
+            if let dose = state.bolusDose?.toDoseEntry(endDate: nil) {
                 return .inProgress(dose)
             }
 
@@ -328,302 +317,6 @@ extension DanaKitPumpManager: PumpManager {
         syncPump(completion)
     }
 
-    /// Extention from ensureCurrentPumpData, but overrides the stale data check
-    public func syncPump(_ completion: ((Date?) -> Void)?) {
-        delegateQueue.async {
-            let this = self
-            self.log.info("Syncing pump data")
-            self.logDeviceCommunication("Syncing pump data", type: .delegate)
-
-            self.bluetooth.ensureConnected { result in
-                switch result {
-                case .success:
-                    self.syncUserOptions()
-                    let events = self.syncHistory()
-
-                    if self.shouldSyncTime() {
-                        self.syncTime()
-                    }
-
-                    let pumpTime = self.fetchPumpTime()
-                    if let pumpTime = pumpTime {
-                        self.state.pumpTimeSyncedAt = Date.now
-                        self.state.pumpTime = pumpTime
-                    }
-
-                    self.state.lastStatusPumpDateTime = pumpTime ?? Date.now
-                    self.state.lastStatusDate = Date.now
-                    self.disconnect()
-
-                    self.issueHeartbeatIfNeeded()
-                    self.notifyStateDidChange()
-
-                    self.pumpDelegate.notify { delegate in
-                        guard let delegate = delegate else {
-                            this.log.error("Reservoir level & last check could not be reported -> Missing delegate")
-                            return
-                        }
-
-                        delegate.pumpManager(
-                            this,
-                            hasNewPumpEvents: events,
-                            lastReconciliation: this.state.lastStatusDate,
-                            replacePendingEvents: true,
-                        ) { error in
-                            if let error = error {
-                                this.handlePumpDelegateError(method: "hasNewPumpEvents", error)
-                            }
-                        }
-                        delegate.pumpManager(
-                            this,
-                            didReadReservoirValue: this.state.reservoirLevel,
-                            at: this.state.lastStatusDate,
-                        ) { result in
-                            switch result {
-                            case let .failure(error):
-                                this.handlePumpDelegateError(method: "didReadReservoirValue", error)
-                            case .success:
-                                break
-                            }
-                        }
-                        delegate.pumpManagerDidUpdateState(this)
-                    }
-
-                    self.log.info("Sync successful!")
-                    completion?(Date.now)
-                default:
-                    completion?(nil)
-                    return
-                }
-            }
-        }
-    }
-
-    private func syncTime() {
-        syncPumpTime { error in
-            if let error = error {
-                self.log.error("Failed to automaticly sync pump time: \(error.localizedDescription)")
-            }
-        }
-    }
-
-    private func shouldSyncTime() -> Bool {
-        guard state.allowAutomaticTimeSync else {
-            return false
-        }
-        guard let pumpTime = state.pumpTime else {
-            return false
-        }
-
-        let pumpTimeComp = Calendar.current.dateComponents([.day], from: pumpTime)
-        let nowComp = Calendar.current.dateComponents([.day], from: Date.now)
-        return pumpTimeComp.day != nowComp.day
-    }
-
-    private func syncUserOptions() {
-        do {
-            let userOptionPacket = generatePacketGeneralGetUserOption()
-            let userOptionResult = try bluetooth.writeMessage(userOptionPacket)
-            guard userOptionResult.success else {
-                log.error("Failed to fetch user options...")
-                return
-            }
-
-            guard let dataUserOption = userOptionResult.data as? PacketGeneralGetUserOption else {
-                log.error("Received unexpected data while fetching user options...")
-                return
-            }
-
-            state.lowReservoirRate = dataUserOption.lowReservoirRate
-            state.isTimeDisplay24H = dataUserOption.isTimeDisplay24H
-            state.isButtonScrollOnOff = dataUserOption.isButtonScrollOnOff
-            state.beepAndAlarm = dataUserOption.beepAndAlarm
-            state.lcdOnTimeInSec = dataUserOption.lcdOnTimeInSec
-            state.backlightOnTimInSec = dataUserOption.backlightOnTimInSec
-            state.selectedLanguage = dataUserOption.selectedLanguage
-            state.units = dataUserOption.units
-            state.shutdownHour = dataUserOption.shutdownHour
-            state.cannulaVolume = dataUserOption.cannulaVolume
-            state.refillAmount = dataUserOption.refillAmount
-            state.targetBg = dataUserOption.targetBg
-            state.units = dataUserOption.units
-        } catch {
-            log.error("Failed to sync user options: \(error.localizedDescription)")
-        }
-    }
-
-    private func fetchPumpTime() -> Date? {
-        do {
-            let timePacket = state
-                .usingUtc ? generatePacketGeneralGetPumpTimeUtcWithTimezone() : generatePacketGeneralGetPumpTime()
-            let timeResult = try bluetooth.writeMessage(timePacket)
-
-            guard timeResult.success else {
-                log.error("Failed to fetch pump time with utc...")
-                return nil
-            }
-
-            if let data = timeResult.data as? PacketGeneralGetPumpTimeUtcWithTimezone {
-                state.pumpTimeZone = TimeZone(secondsFromGMT: data.timezoneOffset * 3600)
-            }
-
-            let date = state.usingUtc ? (timeResult.data as? PacketGeneralGetPumpTimeUtcWithTimezone)?
-                .time : (timeResult.data as? PacketGeneralGetPumpTime)?.time
-            guard let date = date else {
-                return nil
-            }
-
-            return date
-        } catch {
-            log.error("Failed to sync time: \(error.localizedDescription)")
-            return nil
-        }
-    }
-
-    private func syncHistory() -> [NewPumpEvent] {
-        var hasHistoryModeBeenActivate = false
-        do {
-            let activateHistoryModePacket =
-                generatePacketGeneralSetHistoryUploadMode(options: PacketGeneralSetHistoryUploadMode(mode: 1))
-            let activateHistoryModeResult = try bluetooth.writeMessage(activateHistoryModePacket)
-            guard activateHistoryModeResult.success else {
-                return []
-            }
-
-            hasHistoryModeBeenActivate = true
-
-            let fetchHistoryPacket =
-                generatePacketHistoryAll(options: PacketHistoryBase(from: state.lastStatusPumpDateTime, usingUtc: state.usingUtc))
-            let fetchHistoryResult = try bluetooth.writeMessage(fetchHistoryPacket)
-            guard fetchHistoryResult.success else {
-                return []
-            }
-
-            let deactivateHistoryModePacket =
-                generatePacketGeneralSetHistoryUploadMode(options: PacketGeneralSetHistoryUploadMode(mode: 0))
-            _ = try bluetooth.writeMessage(deactivateHistoryModePacket)
-
-            guard let list = fetchHistoryResult.data as? [HistoryItem] else {
-                return []
-            }
-
-            return list.compactMap({ item in
-                switch item.code {
-                case HistoryCode.RECORD_TYPE_ALARM:
-                    return [NewPumpEvent(
-                        date: item.timestamp,
-                        dose: nil,
-                        raw: item.raw,
-                        title: "Alarm: \(getAlarmMessage(param8: item.alarm))",
-                        type: .alarm,
-                        alarmType: PumpAlarmType.fromParam8(item.alarm)
-                    )]
-
-                case HistoryCode.RECORD_TYPE_BOLUS:
-                    // Skip bolus syncing if enabled by user
-                    if self.state.isBolusSyncDisabled {
-                        return []
-                    }
-
-                    // If we find a bolus here, we assume that is hasnt been synced to Loop
-                    return [NewPumpEvent.bolus(
-                        dose: DoseEntry.bolus(
-                            units: item.value!,
-                            deliveredUnits: item.value!,
-                            duration: item.durationInMin! * 60,
-                            activationType: .manualNoRecommendation,
-                            insulinType: self.state.insulinType,
-                            startDate: item.timestamp
-                        ),
-                        units: item.value!,
-                        date: item.timestamp
-                    )]
-
-                case HistoryCode.RECORD_TYPE_SUSPEND:
-                    if item.value! == 1 {
-                        return [NewPumpEvent.suspend(dose: DoseEntry.suspend(suspendDate: item.timestamp))]
-                    } else {
-                        return [NewPumpEvent.resume(
-                            dose: DoseEntry.resume(insulinType: self.state.insulinType, resumeDate: item.timestamp),
-                            date: item.timestamp
-                        )]
-                    }
-
-                case HistoryCode.RECORD_TYPE_PRIME:
-                    guard let value = item.value, value < 1 else {
-                        // This is a tube refill, not a canulla refill
-                        return []
-                    }
-
-                    if self.state.cannulaDate == nil {
-                        self.state.cannulaDate = item.timestamp
-                    } else if let cannulaDate = self.state.cannulaDate, item.timestamp > cannulaDate {
-                        self.state.cannulaDate = item.timestamp
-                    }
-
-                    return [
-                        NewPumpEvent(
-                            date: item.timestamp,
-                            dose: nil,
-                            raw: item.raw,
-                            title: "Prime \(value)U",
-                            type: .replaceComponent(componentType: .infusionSet),
-                            alarmType: nil
-                        ),
-                        NewPumpEvent(
-                            date: item.timestamp,
-                            dose: nil,
-                            raw: item.raw,
-                            title: "Prime \(value)U",
-                            type: .prime,
-                            alarmType: nil
-                        )
-                    ]
-
-                case HistoryCode.RECORD_TYPE_REFILL:
-                    if self.state.reservoirDate == nil {
-                        self.state.reservoirDate = item.timestamp
-                    } else if let reservoirDate = self.state.reservoirDate, item.timestamp > reservoirDate {
-                        self.state.reservoirDate = item.timestamp
-                    }
-
-                    return [
-                        NewPumpEvent(
-                            date: item.timestamp,
-                            dose: nil,
-                            raw: item.raw,
-                            title: "Rewind \(item.value ?? 0)U",
-                            type: .rewind,
-                            alarmType: nil
-                        ),
-                        NewPumpEvent(
-                            date: item.timestamp,
-                            dose: nil,
-                            raw: item.raw,
-                            title: "Rewind \(item.value ?? 0)U",
-                            type: .replaceComponent(componentType: .reservoir),
-                            alarmType: nil
-                        )
-                    ]
-
-                default:
-                    return []
-                }
-            }).flatMap { $0 }
-
-        } catch {
-            log.error("Failed to sync history. Error: \(error.localizedDescription)")
-            if hasHistoryModeBeenActivate {
-                do {
-                    let deactivateHistoryModePacket =
-                        generatePacketGeneralSetHistoryUploadMode(options: PacketGeneralSetHistoryUploadMode(mode: 0))
-                    _ = try bluetooth.writeMessage(deactivateHistoryModePacket)
-                } catch {}
-            }
-            return []
-        }
-    }
-
     public func createBolusProgressReporter(reportingOn _: DispatchQueue) -> DoseProgressReporter? {
         doseReporter
     }
@@ -648,10 +341,10 @@ extension DanaKitPumpManager: PumpManager {
             self.bluetooth.ensureConnected { result in
                 switch result {
                 case .success:
-                    guard !self.state.isPumpSuspended else {
+                    guard self.state.basalDeliveryOrdinal != .suspended else {
                         self.state.bolusState = .noBolus
                         self.doseReporter = nil
-                        self.doseEntry = nil
+                        self.state.bolusDose = nil
                         self.notifyStateDidChange()
                         self.disconnect()
 
@@ -661,6 +354,7 @@ extension DanaKitPumpManager: PumpManager {
                     }
 
                     do {
+                        self.lastReportedBolusStep = 0
                         let packet =
                             generatePacketBolusStart(options: PacketBolusStart(
                                 amount: units,
@@ -671,7 +365,7 @@ extension DanaKitPumpManager: PumpManager {
                         guard result.success else {
                             self.state.bolusState = .noBolus
                             self.doseReporter = nil
-                            self.doseEntry = nil
+                            self.state.bolusDose = nil
                             self.notifyStateDidChange()
                             self.disconnect()
 
@@ -691,11 +385,12 @@ extension DanaKitPumpManager: PumpManager {
                             insulinType: self.state.insulinType
                         )
 
-                        self.doseEntry = doseEntry
                         self.doseReporter = DanaKitDoseProgressReporter(total: units)
-                        self.state.bolusState = .inProgress
 
                         if !self.isPriming {
+                            self.state.bolusDose = doseEntry
+                            self.state.bolusState = .inProgress
+
                             let dose = doseEntry.toDoseEntry(endDate: nil)
                             self.pumpDelegate.notify { delegate in
                                 guard let delegate = delegate else {
@@ -705,7 +400,6 @@ extension DanaKitPumpManager: PumpManager {
 
                                 let event = NewPumpEvent.bolus(
                                     dose: dose,
-                                    units: dose.programmedUnits,
                                     date: dose.startDate
                                 )
                                 delegate.pumpManager(
@@ -816,7 +510,7 @@ extension DanaKitPumpManager: PumpManager {
             state.bolusState = .noBolus
             notifyStateDidChange()
 
-            guard let doseEntry = self.doseEntry else {
+            guard let doseEntry = state.bolusDose else {
                 completion(.success(nil))
                 return
             }
@@ -828,8 +522,8 @@ extension DanaKitPumpManager: PumpManager {
             )
 
             let dose = doseEntry.toDoseEntry(endDate: bolusCancelledAt)
-            self.doseEntry = nil
             doseReporter = nil
+            state.bolusDose = nil
 
             sendCancelEvent(dose)
             completion(.success(nil))
@@ -853,7 +547,7 @@ extension DanaKitPumpManager: PumpManager {
 
                 delegate.pumpManager(
                     self,
-                    hasNewPumpEvents: [NewPumpEvent.bolus(dose: dose, units: dose.deliveredUnits ?? 0, date: dose.startDate)],
+                    hasNewPumpEvents: [NewPumpEvent.bolus(dose: dose, date: dose.startDate)],
                     lastReconciliation: self.state.lastStatusDate,
                     replacePendingEvents: true,
                 ) { error in
@@ -867,11 +561,21 @@ extension DanaKitPumpManager: PumpManager {
         }
     }
 
-    /// NOTE: There are 2 ways to set a temp basal:
-    /// - The normal way (which only accepts full hours and percentages)
-    /// - A short APS-special temp basal command (which only accepts 15 min or 30 min)
-    /// Currently, this is implemented with a simpel U/hr -> % calculator
-    /// NOTE: A temp basal >200% for 30 min (or full hour) is rescheduled to 15min
+    public func enactTempBasal(
+        percentage: UInt16,
+        for duration: TimeInterval,
+        automatic: Bool,
+        completion: @escaping (PumpManagerError?) -> Void
+    ) {
+        log.info("Enact manual temp basal. Value: \(percentage)%, duration: \(duration) sec")
+        logDeviceCommunication(
+            "Enact temp basal. Value: \(percentage)%, duration: \(duration) sec",
+            type: .delegate
+        )
+
+        _enactTempBasal(percentage: percentage, for: duration, automatic: automatic, completion: completion)
+    }
+
     public func enactTempBasal(
         unitsPerHour: Double,
         for duration: TimeInterval,
@@ -883,6 +587,36 @@ extension DanaKitPumpManager: PumpManager {
             type: .delegate
         )
 
+        guard let percentage = absoluteBasalRateToPercentage(
+            absoluteValue: unitsPerHour,
+            basalSchedule: state.basalSchedule
+        ) else {
+            disconnect()
+            log.error("Basal schedule is not available...")
+            completion(
+                PumpManagerError
+                    .configuration(
+                        DanaKitPumpManagerError
+                            .failedTempBasalAdjustment("Basal schedule is not available...")
+                    )
+            )
+            return
+        }
+
+        _enactTempBasal(percentage: percentage, for: duration, automatic: true, completion: completion)
+    }
+
+    /// NOTE: There are 2 ways to set a temp basal:
+    /// - The normal way (which only accepts full hours and percentages)
+    /// - A short APS-special temp basal command (which only accepts 15 min or 30 min)
+    /// Currently, this is implemented with a simpel U/hr -> % calculator
+    /// NOTE: A temp basal >200% for 30 min (or full hour) is rescheduled to 15min
+    private func _enactTempBasal(
+        percentage: UInt16,
+        for duration: TimeInterval,
+        automatic: Bool,
+        completion: @escaping (PumpManagerError?) -> Void
+    ) {
         guard state.bolusState == .noBolus else {
             log.error("Rejecting command -> Pump is bolussing...")
             completion(.deviceState(DanaKitPumpManagerError.pumpIsBusy))
@@ -893,7 +627,7 @@ extension DanaKitPumpManager: PumpManager {
             self.bluetooth.ensureConnected { result in
                 switch result {
                 case .success:
-                    guard !self.state.isPumpSuspended else {
+                    guard self.state.basalDeliveryOrdinal != .suspended else {
                         self.log.error("Pump is suspended")
                         self.disconnect()
                         completion(PumpManagerError.deviceState(DanaKitPumpManagerError.pumpSuspended))
@@ -940,37 +674,20 @@ extension DanaKitPumpManager: PumpManager {
                             }
                         }
 
-                        guard var percentage = self.absoluteBasalRateToPercentage(
-                            absoluteValue: unitsPerHour,
-                            basalSchedule: self.state.basalSchedule
-                        ) else {
-                            self.disconnect()
-                            self.log.error("Basal schedule is not available...")
-                            completion(
-                                PumpManagerError
-                                    .configuration(
-                                        DanaKitPumpManagerError
-                                            .failedTempBasalAdjustment("Basal schedule is not available...")
-                                    )
-                            )
-                            return
-                        }
-
                         // Temp basal >15min && >200% is not supported
                         // Floor it down to 15min
                         if percentage > 200, duration != .minutes(15) {
                             duration = .minutes(15)
                         }
 
-                        var unitsPerHour = unitsPerHour
+                        // The pump does not support temp basals over 500%
+                        // Limiting the percentage and update the correct abosulute temp basal rate
+                        var percentage = percentage
                         if percentage > 500 {
-                            // The pump does not support temp basals over 500%
-                            // Limiting the percentage and update the correct abosulute temp basal rate
                             percentage = 500
-                            unitsPerHour = self.currentBaseBasalRate * 5
                         }
 
-                        if self.state.isTempBasalInProgress {
+                        if self.state.basalDeliveryOrdinal == .tempBasal {
                             let packet = generatePacketBasalCancelTemporary()
                             let result = try self.bluetooth.writeMessage(packet)
 
@@ -990,11 +707,20 @@ extension DanaKitPumpManager: PumpManager {
                             self.log.info("Successfully canceled old temp basal")
                         }
 
+                        // 500% fix is already applied
+                        let unitsPerHour = (Double(percentage) / 100) * self.state.getScheduledBasalRate()
+
                         if duration < .ulpOfOne {
                             // Temp basal is already canceled (if deem needed)
                             self.disconnect()
 
-                            self.reportBasal(unitsPerHour: unitsPerHour, duration: duration, isTempBasal: false)
+                            self.reportBasal(
+                                unitsPerHour: unitsPerHour,
+                                duration: duration,
+                                percentage: percentage,
+                                isTempBasal: false,
+                                automatic: automatic
+                            )
 
                             self.log.info("Successfully cancelled temp basal")
                             self.logDeviceCommunication("Successfully cancelled temp basal", type: .delegateResponse)
@@ -1021,7 +747,13 @@ extension DanaKitPumpManager: PumpManager {
                                 return
                             }
 
-                            self.reportBasal(unitsPerHour: unitsPerHour, duration: duration, isTempBasal: true)
+                            self.reportBasal(
+                                unitsPerHour: unitsPerHour,
+                                duration: duration,
+                                percentage: percentage,
+                                isTempBasal: true,
+                                automatic: automatic
+                            )
 
                             self.log.info("Successfully started 15 min temp basal")
                             self.logDeviceCommunication("Successfully started 15 min temp basal", type: .delegateResponse)
@@ -1048,7 +780,13 @@ extension DanaKitPumpManager: PumpManager {
                                 return
                             }
 
-                            self.reportBasal(unitsPerHour: unitsPerHour, duration: duration, isTempBasal: true)
+                            self.reportBasal(
+                                unitsPerHour: unitsPerHour,
+                                duration: duration,
+                                percentage: percentage,
+                                isTempBasal: true,
+                                automatic: automatic
+                            )
 
                             self.log.info("Successfully started 30 min temp basal")
                             self.logDeviceCommunication("Successfully started 30 min temp basal", type: .delegateResponse)
@@ -1080,7 +818,13 @@ extension DanaKitPumpManager: PumpManager {
                                 return
                             }
 
-                            self.reportBasal(unitsPerHour: unitsPerHour, duration: duration, isTempBasal: true)
+                            self.reportBasal(
+                                unitsPerHour: unitsPerHour,
+                                duration: duration,
+                                percentage: percentage,
+                                isTempBasal: true,
+                                automatic: automatic
+                            )
 
                             let log = "Successfully started \(durationInHours)h temp basal"
                             self.log.info(log)
@@ -1103,49 +847,45 @@ extension DanaKitPumpManager: PumpManager {
         }
     }
 
-    private func reportBasal(unitsPerHour: Double, duration: Double, isTempBasal: Bool) {
+    private func reportBasal(unitsPerHour: Double, duration: Double, percentage _: UInt16, isTempBasal: Bool, automatic: Bool) {
         var events: [NewPumpEvent] = []
+        var basalDose: UnfinalizedDose
 
         let startDate = Date.now
         if isTempBasal {
+            basalDose = UnfinalizedDose(
+                tempRate: unitsPerHour,
+                duration: duration,
+                insulinType: state.insulinType,
+                automatic: automatic,
+                startDate: startDate
+            )
             events.append(NewPumpEvent.tempBasal(
-                dose: DoseEntry.tempBasal(
-                    absoluteUnit: unitsPerHour,
-                    duration: duration,
-                    insulinType: state.insulinType,
-                    startDate: startDate
-                ),
+                dose: basalDose.toDoseEntry(endDate: nil),
                 date: startDate
             ))
         } else {
+            basalDose = UnfinalizedDose(
+                basalRate: state.getScheduledBasalRate(date: startDate),
+                insulinType: state.insulinType,
+                startDate: startDate
+            )
             events.append(NewPumpEvent.basal(
-                dose: DoseEntry.basal(
-                    rate: currentBaseBasalRate,
-                    insulinType: state.insulinType,
-                    startDate: startDate
-                ),
+                dose: basalDose.toDoseEntry(endDate: nil),
                 date: startDate
             ))
         }
 
-        if let units = state.tempBasalUnits {
+        if state.basalDose.type == .tempBasal {
             // Report cancelled temp basal
             events.append(NewPumpEvent.tempBasal(
-                dose: DoseEntry.tempBasal(
-                    absoluteUnit: units,
-                    duration: 0, // Ignored
-                    insulinType: state.insulinType,
-                    startDate: state.basalDeliveryDate,
-                    endDate: Date.now
-                ),
-                date: state.basalDeliveryDate
+                dose: state.basalDose.toDoseEntry(endDate: startDate),
+                date: state.basalDose.startDate
             ))
         }
 
         state.basalDeliveryOrdinal = isTempBasal ? .tempBasal : .active
-        state.basalDeliveryDate = startDate
-        state.tempBasalUnits = isTempBasal ? unitsPerHour : nil
-        state.tempBasalDuration = isTempBasal ? duration : nil
+        state.basalDose = basalDose
         state.lastStatusDate = Date.now
         notifyStateDidChange()
 
@@ -1182,7 +922,7 @@ extension DanaKitPumpManager: PumpManager {
                 switch result {
                 case .success:
                     do {
-                        if self.state.isTempBasalInProgress {
+                        if self.state.basalDeliveryOrdinal == .tempBasal {
                             let packet = generatePacketBasalCancelTemporary()
                             let result = try self.bluetooth.writeMessage(packet)
 
@@ -1201,7 +941,7 @@ extension DanaKitPumpManager: PumpManager {
 
                             self.log.info("Successfully canceled old temp basal")
                         }
-                        
+
                         let packet = generatePacketBasalSetSuspendOn()
                         let result = try self.bluetooth.writeMessage(packet)
 
@@ -1219,18 +959,16 @@ extension DanaKitPumpManager: PumpManager {
                             return
                         }
 
-                        var events = [NewPumpEvent.suspend(dose: DoseEntry.suspend())]
-                        if let tempBasalEvent = self.getTempBasalEvent(endDate: Date.now) {
-                            events.append(tempBasalEvent)
+                        let dose = UnfinalizedDose(suspendStartTime: Date.now)
+                        var events = [NewPumpEvent.suspend(dose: dose.toDoseEntry(endDate: nil))]
+                        if let tempBasalEvent = self.getTempBasalEvent(endDate: dose.startDate) {
+                            events.append(contentsOf: tempBasalEvent)
                         }
 
                         self.state.lastStatusPumpDateTime = pumpTime ?? Date.now
-                        self.state.lastStatusDate = Date.now
-                        self.state.isPumpSuspended = true
                         self.state.basalDeliveryOrdinal = .suspended
-                        self.state.basalDeliveryDate = Date.now
-                        self.state.tempBasalUnits = nil
-                        self.state.tempBasalDuration = nil
+                        self.state.basalDose = dose
+                        self.state.lastStatusDate = Date.now
                         self.notifyStateDidChange()
 
                         self.pumpDelegate.notify { delegate in
@@ -1297,13 +1035,11 @@ extension DanaKitPumpManager: PumpManager {
                         }
 
                         self.state.lastStatusPumpDateTime = pumpTime ?? Date.now
-                        self.state.lastStatusDate = Date.now
-                        self.state.isPumpSuspended = false
                         self.state.basalDeliveryOrdinal = .active
-                        self.state.basalDeliveryDate = Date.now
+                        self.state.basalDose = UnfinalizedDose(resumeStartTime: Date.now, insulinType: self.state.insulinType)
+                        self.state.lastStatusDate = Date.now
                         self.notifyStateDidChange()
 
-                        let dose = DoseEntry.resume(insulinType: self.state.insulinType!)
                         self.pumpDelegate.notify { delegate in
                             guard let delegate = delegate else {
                                 this.log.error("Resume could not be reported -> Missing delegate")
@@ -1312,7 +1048,9 @@ extension DanaKitPumpManager: PumpManager {
 
                             delegate.pumpManager(
                                 this,
-                                hasNewPumpEvents: [NewPumpEvent.resume(dose: dose)],
+                                hasNewPumpEvents: [NewPumpEvent.resume(
+                                    dose: self.state.basalDose.toDoseEntry(endDate: nil)
+                                )],
                                 lastReconciliation: this.state.lastStatusDate,
                                 replacePendingEvents: true,
                             ) { error in
@@ -1345,7 +1083,6 @@ extension DanaKitPumpManager: PumpManager {
         completion: @escaping (Result<BasalRateSchedule, Error>) -> Void
     ) {
         delegateQueue.async {
-            let this = self
             self.log.info("Syncing basal schedule...")
             self.logDeviceCommunication("Syncing basal schedule...", type: .delegate)
 
@@ -1388,35 +1125,8 @@ extension DanaKitPumpManager: PumpManager {
                             return
                         }
 
-                        let dose = DoseEntry.basal(rate: self.currentBaseBasalRate, insulinType: self.state.insulinType)
-                        var events = [NewPumpEvent.basal(dose: dose)]
-                        if let tempBasalEvent = self.getTempBasalEvent() {
-                            events.append(tempBasalEvent)
-                        }
-
-                        self.state.basalDeliveryOrdinal = .active
-                        self.state.basalDeliveryDate = Date.now
                         self.state.basalSchedule = basal
-                        self.state.lastStatusDate = Date.now
                         self.notifyStateDidChange()
-
-                        self.pumpDelegate.notify { delegate in
-                            guard let delegate = delegate else {
-                                this.log.error("Basal could not be reported -> Missing delegate")
-                                return
-                            }
-
-                            delegate.pumpManager(
-                                this,
-                                hasNewPumpEvents: events,
-                                lastReconciliation: this.state.lastStatusDate,
-                                replacePendingEvents: true,
-                            ) { error in
-                                if let error = error {
-                                    this.handlePumpDelegateError(method: "hasNewPumpEvents", error)
-                                }
-                            }
-                        }
 
                         self.log.info("Basal schedule synced!")
                         self.logDeviceCommunication("Basal schedule synced!", type: .delegateResponse)
@@ -1745,7 +1455,7 @@ public extension DanaKitPumpManager {
             alarmType: alert.type
         )]
         if let tempBasalEvent = getTempBasalEvent() {
-            events.append(tempBasalEvent)
+            events.append(contentsOf: tempBasalEvent)
         }
 
         pumpDelegate.notify { delegate in
@@ -1777,22 +1487,22 @@ public extension DanaKitPumpManager {
     }
 
     internal func notifyBolusError() {
-        guard let doseEntry = doseEntry, state.bolusState != .noBolus else {
+        guard let doseEntry = state.bolusDose, state.bolusState != .noBolus else {
             // Ignore if no bolus is going
             return
         }
 
         logDeviceCommunication("Error during bolus - \(doseEntry.deliveredUnits)U of \(doseEntry.value)U", type: .error)
 
-        self.doseEntry = nil
         doseReporter = nil
+        state.bolusDose = nil
         state.bolusState = .noBolus
         state.lastStatusDate = Date.now
         notifyStateDidChange()
     }
 
     internal func notifyBolusDidUpdate(deliveredUnits: Double) {
-        guard let doseEntry = self.doseEntry else {
+        guard let doseEntry = state.bolusDose else {
             log.error("No bolus entry found...")
             return
         }
@@ -1801,31 +1511,24 @@ public extension DanaKitPumpManager {
         doseReporter?.notify(deliveredUnits: deliveredUnits)
         notifyStateDidChange()
 
-        if deliveredUnits.truncatingRemainder(dividingBy: getDoseDivider()) == 0.0 {
-            do {
-                let command = generatePacketGeneralKeepConnection()
-                let result = try bluetooth.writeMessage(command)
+        let currentStep = Int(deliveredUnits)
+        if currentStep > lastReportedBolusStep {
+            lastReportedBolusStep = currentStep
+            DispatchQueue.global(qos: .userInitiated).async {
+                do {
+                    let command = generatePacketGeneralKeepConnection()
+                    let result = try self.bluetooth.writeMessage(command)
 
-                guard result.success else {
-                    log.warning("Pump declined keepalive")
-                    return
+                    guard result.success else {
+                        self.log.warning("Pump declined keepalive")
+                        return
+                    }
+
+                    self.log.info("Pump accepted keepalive")
+                } catch {
+                    self.log.error("Failed to send keepalive: \(error)")
                 }
-
-                log.info("Pump accepted keepalive")
-            } catch {
-                log.error("Failed to send keepalive: \(error)")
             }
-        }
-    }
-
-    private func getDoseDivider() -> Double {
-        switch state.bolusSpeed {
-        case .speed12:
-            return 20.0
-        case .speed30:
-            return 8.0
-        case .speed60:
-            return 4.0
         }
     }
 
@@ -1841,9 +1544,10 @@ public extension DanaKitPumpManager {
             let bolusCompletedAt = Date.now
 
             do {
-                let resultInitialScreenInformation = try self.bluetooth.writeMessage(generatePacketGeneralGetInitialScreenInformation())
+                let resultInitialScreenInformation = try self.bluetooth
+                    .writeMessage(generatePacketGeneralGetInitialScreenInformation())
                 if resultInitialScreenInformation.success,
-                let data = resultInitialScreenInformation.data as? PacketGeneralGetInitialScreenInformation
+                   let data = resultInitialScreenInformation.data as? PacketGeneralGetInitialScreenInformation
                 {
                     state.reservoirLevel = data.reservoirRemainingUnits
                 }
@@ -1860,7 +1564,7 @@ public extension DanaKitPumpManager {
 
             self.delegateQueue.asyncAfter(deadline: .now() + 1, execute: work)
 
-            guard let doseEntry = self.doseEntry else {
+            guard let doseEntry = state.bolusDose else {
                 log.error("No doseEntry available...")
                 return
             }
@@ -1868,17 +1572,17 @@ public extension DanaKitPumpManager {
             doseEntry.deliveredUnits = deliveredUnits
             let dose = doseEntry.toDoseEntry(endDate: bolusCompletedAt)
 
-            self.doseEntry = nil
             self.doseReporter = nil
+            self.state.bolusDose = nil
 
             guard !self.isPriming else {
                 log.debug("PumpManager is in priming mode -> Skip reporting dose")
                 return
             }
 
-            var events = [NewPumpEvent.bolus(dose: dose, units: deliveredUnits, date: dose.startDate)]
+            var events = [NewPumpEvent.bolus(dose: dose, date: dose.startDate)]
             if let tempBasalEvent = getTempBasalEvent() {
-                events.append(tempBasalEvent)
+                events.append(contentsOf: tempBasalEvent)
             }
 
             self.pumpDelegate.notify { delegate in
@@ -1914,7 +1618,7 @@ public extension DanaKitPumpManager {
     }
 
     internal func checkBolusDone() {
-        guard let doseEntry = self.doseEntry else {
+        guard let doseEntry = state.bolusDose else {
             // Disconnect was done after bolus was complete!
             return
         }
@@ -1930,25 +1634,14 @@ public extension DanaKitPumpManager {
         doseEntry.deliveredUnits = doseEntry.value
         let dose = doseEntry.toDoseEntry(endDate: Date.now)
 
-        var events = [NewPumpEvent.bolus(dose: dose, units: doseEntry.value, date: dose.startDate)]
-        if state.basalDeliveryOrdinal == .tempBasal,
-           let unitsPerHour = state.tempBasalUnits,
-           let duration = state.tempBasalDuration
-        {
-            events.append(NewPumpEvent.tempBasal(
-                dose:
-                DoseEntry.tempBasal(
-                    absoluteUnit: unitsPerHour,
-                    duration: duration,
-                    insulinType: state.insulinType,
-                    startDate: state.basalDeliveryDate,
-                )
-            ))
+        var events = [NewPumpEvent.bolus(dose: dose, date: dose.startDate)]
+        if let tempBasal = getTempBasalEvent() {
+            events.append(contentsOf: tempBasal)
         }
 
         state.bolusState = .noBolus
+        state.bolusDose = nil
         state.lastStatusDate = Date.now
-        self.doseEntry = nil
         notifyStateDidChange()
 
         pumpDelegate.notify { delegate in
@@ -1983,29 +1676,9 @@ public extension DanaKitPumpManager {
         )
     }
 
-    private func handlePumpDelegateError(method: String, _ error: Error, _ function: String = #function, _ line: Int = #line) {
+    func handlePumpDelegateError(method: String, _ error: Error, _ function: String = #function, _ line: Int = #line) {
         let logLine = "Received pump delegate error in \(method): \(error) at \(function):\(line)"
         log.error(logLine)
         logDeviceCommunication(logLine, type: .error)
-    }
-
-    private func getTempBasalEvent(endDate: Date? = nil) -> NewPumpEvent? {
-        guard state.basalDeliveryOrdinal == .tempBasal,
-              let unitsPerHour = state.tempBasalUnits,
-              let duration = state.tempBasalDuration
-        else {
-            return nil
-        }
-
-        return NewPumpEvent.tempBasal(
-            dose: DoseEntry.tempBasal(
-                absoluteUnit: unitsPerHour,
-                duration: duration,
-                insulinType: state.insulinType,
-                startDate: state.basalDeliveryDate,
-                endDate: endDate
-            ),
-            date: state.basalDeliveryDate
-        )
     }
 }
