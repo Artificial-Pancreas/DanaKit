@@ -216,7 +216,6 @@ class InteractiveBluetoothManager: NSObject, BluetoothManager {
 
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         isBusy = false
-        connectionCallback = nil
         bleCentralManager(central, didDisconnectPeripheral: peripheral, error: error)
     }
 
