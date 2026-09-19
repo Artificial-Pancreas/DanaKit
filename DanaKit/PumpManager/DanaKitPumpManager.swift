@@ -184,10 +184,6 @@ public class DanaKitPumpManager: DeviceManager {
 }
 
 extension DanaKitPumpManager: PumpManager {
-    public func estimatedDuration(toBolus units: Double) -> TimeInterval {
-        self.state.bolusSpeed.calculate(units: units)
-    }
-    
     public static var onboardingMaximumBasalScheduleEntryCount: Int {
         24
     }
@@ -321,6 +317,17 @@ extension DanaKitPumpManager: PumpManager {
         doseReporter
     }
 
+    public func estimatedDuration(toBolus units: Double) -> TimeInterval {
+        switch state.bolusSpeed {
+        case .speed12:
+            return units * 12 // 12sec/U
+        case .speed30:
+            return units * 30 // 30sec/U
+        case .speed60:
+            return units * 60 // 60sec/U
+        }
+    }
+
     public func enactBolus(
         units: Double,
         activationType: BolusActivationType,
@@ -334,9 +341,12 @@ extension DanaKitPumpManager: PumpManager {
 
         delegateQueue.async {
             let this = self
-            let duration = self.state.bolusSpeed.calculate(units: units)
+            let duration = self.estimatedDuration(toBolus: units)
             self.log.info("Enact bolus, units: \(units)U, duration: \(duration)sec")
             self.logDeviceCommunication("Enact bolus, units: \(units)U, duration: \(duration)sec", type: .delegate)
+
+            self.state.bolusState = .initiating
+            self.notifyStateDidChange()
 
             self.bluetooth.ensureConnected { result in
                 switch result {
